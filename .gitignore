@@ -109,4 +109,5 @@ fabric.properties
 Carthage/Checkouts/
 Carthage/Build/
 
-# End of https://www.gitignore.io/api/o,osx,xcode,appcode,carthage
+# Fastlane
+test_output/

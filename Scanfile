@@ -1,0 +1,3 @@
+scheme "FlyingCivet"
+devices ["iPhone 6s", "iPhone 7"]
+clean true
