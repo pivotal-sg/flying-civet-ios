@@ -193,7 +193,7 @@
 				TargetAttributes = {
 					AE9ABB3A1E24C1D0007CFF5C = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = VRZG3C52K7;
+						DevelopmentTeam = 89A6V964HC;
 						ProvisioningStyle = Automatic;
 					};
 					AE9ABB4E1E24C1D0007CFF5C = {
@@ -415,10 +415,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VRZG3C52K7;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 89A6V964HC;
 				INFOPLIST_FILE = FlyingCivet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.pivotal.singapore.FlyingCivet;
+				PRODUCT_BUNDLE_IDENTIFIER = io.pivotal.singapore.FlyingToddycat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -428,10 +429,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VRZG3C52K7;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 89A6V964HC;
 				INFOPLIST_FILE = FlyingCivet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.pivotal.singapore.FlyingCivet;
+				PRODUCT_BUNDLE_IDENTIFIER = io.pivotal.singapore.FlyingToddycat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -514,6 +516,7 @@
 				AE9ABB651E24C1D0007CFF5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE9ABB661E24C1D0007CFF5C /* Build configuration list for PBXNativeTarget "FlyingCivetTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +525,7 @@
 				AE9ABB681E24C1D0007CFF5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE9ABB691E24C1D0007CFF5C /* Build configuration list for PBXNativeTarget "FlyingCivetUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +534,7 @@
 				AE9ABB6B1E24C1D0007CFF5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

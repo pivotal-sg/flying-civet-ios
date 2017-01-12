@@ -111,3 +111,7 @@ Carthage/Build/
 
 # Fastlane
 test_output/
+
+# Build files
+*.app.dSYM.zip
+*.ipa
