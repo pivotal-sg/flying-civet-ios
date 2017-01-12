@@ -1,0 +1,7 @@
+app_identifier "io.pivotal.singapore.FlyingToddycat" # The bundle identifier of your app
+apple_id "labs-singapore-ops+appleid-admin@pivotal.io" # Your Apple email address
+
+team_id "89A6V964HC"  # Developer Portal Team ID
+
+# you can even provide different app identifiers, Apple IDs and team names per lane:
+# More information: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md
