@@ -29,7 +29,10 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
   lane :beta do
     match(type: 'appstore')
-    increment_build_number
+
+    build_number = increment_build_number
+    commit_version_bump( message: "Bump build number to #{build_number}")
+    push_to_git_commit(tags: false)
 
     gym(scheme: "FlyingToddycat") # Build your app - more options available
 
