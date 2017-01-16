@@ -115,3 +115,6 @@ test_output/
 # Build files
 *.app.dSYM.zip
 *.ipa
+
+# Fastlane
+fastlane/report.xml
