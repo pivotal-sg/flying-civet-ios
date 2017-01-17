@@ -89,6 +89,9 @@
                                 <state key="normal" title="START TAKING ORDERS">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Beq-ao-4jL" kind="show" id="r2J-eA-qe0"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dMs-VT-ErH">
                                 <rect key="frame" x="66" y="296.5" width="243" height="74"/>
@@ -167,6 +170,82 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOI-vw-7IY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2126" y="136"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ij2-Bg-hS3">
+            <objects>
+                <viewController id="Beq-ao-4jL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wfv-F9-yT8"/>
+                        <viewControllerLayoutGuide type="bottom" id="6lE-cz-Ant"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WfN-RO-MvP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are going on a Kopi Run to Toast Box" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgZ-PG-CFx">
+                                <rect key="frame" x="30" y="102.5" width="315" height="129"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lpQ-Bb-H4g">
+                                <rect key="frame" x="26" y="415.5" width="323" height="170"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dg7-c6-QEU">
+                                        <rect key="frame" x="0.0" y="0.0" width="323" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="VsE-wQ-f5k"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="PLACE AN ORDER">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iyq-Vc-Xpx">
+                                        <rect key="frame" x="0.0" y="60" width="323" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Ba7-6o-0z4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="VIEW ORDERS">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vV6-7S-Yhn">
+                                        <rect key="frame" x="0.0" y="120" width="323" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="nGD-Vh-qdT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="CANCEL KOPI RUN">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vV6-7S-Yhn" firstAttribute="height" secondItem="dg7-c6-QEU" secondAttribute="height" id="XUF-zb-hvB"/>
+                                    <constraint firstItem="Iyq-Vc-Xpx" firstAttribute="height" secondItem="dg7-c6-QEU" secondAttribute="height" id="ucg-sL-4OM"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VgZ-PG-CFx" firstAttribute="centerY" secondItem="WfN-RO-MvP" secondAttribute="centerY" multiplier="0.5" id="0aJ-cM-B0B"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lpQ-Bb-H4g" secondAttribute="trailing" constant="10" id="DWt-R5-IfO"/>
+                            <constraint firstItem="VgZ-PG-CFx" firstAttribute="leading" secondItem="WfN-RO-MvP" secondAttribute="leading" constant="30" id="NAn-Ci-uCi"/>
+                            <constraint firstItem="lpQ-Bb-H4g" firstAttribute="centerY" secondItem="WfN-RO-MvP" secondAttribute="centerY" multiplier="1.5" id="NGd-jT-Bff"/>
+                            <constraint firstItem="lpQ-Bb-H4g" firstAttribute="leading" secondItem="WfN-RO-MvP" secondAttribute="leadingMargin" constant="10" id="X4I-lV-og2"/>
+                            <constraint firstAttribute="trailing" secondItem="VgZ-PG-CFx" secondAttribute="trailing" constant="30" id="YNK-dH-G46"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4qu-ha-Ka0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3148" y="135.38230884557723"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DxD-Oi-u6X">

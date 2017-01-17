@@ -48,5 +48,11 @@ class FlyingCivetUITests: XCTestCase {
         XCTAssert(startTakingOrdersButton.exists, "\"\(START_TAKING_ORDERS_BUTTON_TEXT)\" button does not exist")
         
         startTakingOrdersButton.tap()
+
+        let KOPI_RUN_TO_TOAST_BOX_TEXT = "You are going on a Kopi Run to Toast Box"
+        let kopiRunToToastBoxLabel = app.staticTexts[KOPI_RUN_TO_TOAST_BOX_TEXT]
+        XCTAssert(kopiRunToToastBoxLabel.exists, "\"\(KOPI_RUN_TO_TOAST_BOX_TEXT)\" label does not exist")
+
+        app.buttons["PLACE AN ORDER"].tap()
     }
 }
