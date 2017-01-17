@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="1074.4000000000001" y="136.28185907046478"/>
         </scene>
-        <!--View Controller-->
+        <!--Location View Controller-->
         <scene sceneID="anu-Ri-300">
             <objects>
-                <viewController id="KAH-2N-e1J" sceneMemberID="viewController">
+                <viewController id="KAH-2N-e1J" customClass="LocationViewController" customModule="FlyingCivet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UEK-hB-Ly1"/>
                         <viewControllerLayoutGuide type="bottom" id="ppv-zd-2zg"/>
@@ -90,41 +90,58 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dMs-VT-ErH">
-                                <rect key="frame" x="66" y="308" width="243" height="51"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dMs-VT-ErH">
+                                <rect key="frame" x="66" y="296.5" width="243" height="74"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toast Box" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7K-AD-hZY">
-                                        <rect key="frame" x="0.0" y="0.0" width="243" height="20.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywB-gt-aO7">
+                                        <rect key="frame" x="0.0" y="0.0" width="243" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Working Capitol" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbC-1a-evg">
-                                        <rect key="frame" x="0.0" y="30.5" width="243" height="20.5"/>
+                                        <state key="normal" title="Toast Box">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="locationSelected:" destination="KAH-2N-e1J" eventType="touchUpInside" id="KKP-nn-LB5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTX-f1-vJQ">
+                                        <rect key="frame" x="0.0" y="41" width="243" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="The Working Capital">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="locationSelected:" destination="KAH-2N-e1J" eventType="touchUpInside" id="GsI-1L-HUx"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aEQ-vm-3X9">
-                                <rect key="frame" x="66" y="308.5" width="243" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aEQ-vm-3X9">
+                                <rect key="frame" x="289" y="303.5" width="20" height="60"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="B6o-nE-B5l">
-                                        <rect key="frame" x="223" y="0.0" width="20" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="toast-box-checkmark">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="JAu-lU-6lL"/>
                                             <constraint firstAttribute="width" constant="20" id="bkt-xv-eLm"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="nx4-Gb-yZ0">
-                                        <rect key="frame" x="223" y="30" width="20" height="20"/>
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="nx4-Gb-yZ0">
+                                        <rect key="frame" x="0.0" y="40" width="20" height="20"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="the-working-capital-checkmark">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="M2f-cc-Mkl"/>
                                             <constraint firstAttribute="height" constant="20" id="eg3-Fq-MIl"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="NgQ-Kk-XE7"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -137,12 +154,15 @@
                             <constraint firstItem="IsJ-wS-7DX" firstAttribute="leading" secondItem="zP6-hc-Ofh" secondAttribute="leadingMargin" constant="10" id="Yit-x6-hBD"/>
                             <constraint firstItem="IsJ-wS-7DX" firstAttribute="centerY" secondItem="zP6-hc-Ofh" secondAttribute="centerY" multiplier="1.5" id="drr-pb-T7d"/>
                             <constraint firstItem="dMs-VT-ErH" firstAttribute="leading" secondItem="zP6-hc-Ofh" secondAttribute="leadingMargin" constant="50" id="es4-6B-cSz"/>
-                            <constraint firstItem="aEQ-vm-3X9" firstAttribute="leading" secondItem="zP6-hc-Ofh" secondAttribute="leadingMargin" constant="50" id="g1Z-ht-Zvl"/>
                             <constraint firstItem="dMs-VT-ErH" firstAttribute="centerY" secondItem="zP6-hc-Ofh" secondAttribute="centerY" id="ojd-rP-Scd"/>
                             <constraint firstItem="8by-jS-FpU" firstAttribute="leading" secondItem="zP6-hc-Ofh" secondAttribute="leading" constant="30" id="yDm-aY-Zzo"/>
                             <constraint firstItem="8by-jS-FpU" firstAttribute="centerY" secondItem="zP6-hc-Ofh" secondAttribute="centerY" multiplier="0.5" id="yei-L0-vUP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outletCollection property="checkmarks" destination="B6o-nE-B5l" collectionClass="NSMutableArray" id="qrI-no-Gv0"/>
+                        <outletCollection property="checkmarks" destination="nx4-Gb-yZ0" collectionClass="NSMutableArray" id="bEP-UV-rKy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOI-vw-7IY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

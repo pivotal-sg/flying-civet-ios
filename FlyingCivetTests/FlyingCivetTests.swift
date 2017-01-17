@@ -33,4 +33,22 @@ class FlyingCivetTests: XCTestCase {
         }
     }
     
+    func testLocationSelected() {
+        let toastBoxButton = UIButton()
+        toastBoxButton.tag = 1
+
+        let workingCapitalCheckbox = UIImageView()
+        workingCapitalCheckbox.alpha = 1
+
+        let toastBoxCheckbox = UIImageView()
+        toastBoxCheckbox.alpha = 0
+
+        let lvc = LocationViewController()
+        lvc.checkmarks = [workingCapitalCheckbox, toastBoxCheckbox]
+        lvc.locationSelected(toastBoxButton)
+
+        XCTAssertEqual(workingCapitalCheckbox.alpha, 0)
+        XCTAssertEqual(toastBoxCheckbox.alpha, 1)
+    }
+
 }

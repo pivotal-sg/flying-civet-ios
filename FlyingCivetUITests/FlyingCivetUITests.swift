@@ -35,8 +35,8 @@ class FlyingCivetUITests: XCTestCase {
         startKopiRunButton.tap()
         
         let TOAST_BOX_TEXT = "Toast Box"
-        app.staticTexts[TOAST_BOX_TEXT].tap()
-        
+        app.buttons[TOAST_BOX_TEXT].tap()
+
         let TOAST_BOX_CHECKMARK_IDENTIFIER = "toast-box-checkmark"
         let toastBoxCheckmark = app.images[TOAST_BOX_CHECKMARK_IDENTIFIER]
         XCTAssert(toastBoxCheckmark.isHittable, "\"\(TOAST_BOX_CHECKMARK_IDENTIFIER)\" image does not exist")

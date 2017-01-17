@@ -14,6 +14,8 @@
 		AE9ABB491E24C1D0007CFF5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9ABB471E24C1D0007CFF5C /* LaunchScreen.storyboard */; };
 		AE9ABB541E24C1D0007CFF5C /* FlyingCivetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9ABB531E24C1D0007CFF5C /* FlyingCivetTests.swift */; };
 		AE9ABB5F1E24C1D0007CFF5C /* FlyingCivetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9ABB5E1E24C1D0007CFF5C /* FlyingCivetUITests.swift */; };
+		AEBC273D1E2DAE6E00B9836E /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC273C1E2DAE6E00B9836E /* LocationViewController.swift */; };
+		AEBC273E1E2DAE6E00B9836E /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC273C1E2DAE6E00B9836E /* LocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,7 @@
 		AE9ABB5A1E24C1D0007CFF5C /* FlyingCivetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlyingCivetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9ABB5E1E24C1D0007CFF5C /* FlyingCivetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyingCivetUITests.swift; sourceTree = "<group>"; };
 		AE9ABB601E24C1D0007CFF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEBC273C1E2DAE6E00B9836E /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +101,12 @@
 			isa = PBXGroup;
 			children = (
 				AE9ABB3E1E24C1D0007CFF5C /* AppDelegate.swift */,
-				AE9ABB401E24C1D0007CFF5C /* ViewController.swift */,
-				AE9ABB421E24C1D0007CFF5C /* Main.storyboard */,
 				AE9ABB451E24C1D0007CFF5C /* Assets.xcassets */,
-				AE9ABB471E24C1D0007CFF5C /* LaunchScreen.storyboard */,
 				AE9ABB4A1E24C1D0007CFF5C /* Info.plist */,
+				AE9ABB471E24C1D0007CFF5C /* LaunchScreen.storyboard */,
+				AEBC273C1E2DAE6E00B9836E /* LocationViewController.swift */,
+				AE9ABB421E24C1D0007CFF5C /* Main.storyboard */,
+				AE9ABB401E24C1D0007CFF5C /* ViewController.swift */,
 			);
 			path = FlyingCivet;
 			sourceTree = "<group>";
@@ -262,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEBC273D1E2DAE6E00B9836E /* LocationViewController.swift in Sources */,
 				AE9ABB411E24C1D0007CFF5C /* ViewController.swift in Sources */,
 				AE9ABB3F1E24C1D0007CFF5C /* AppDelegate.swift in Sources */,
 			);
@@ -272,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE9ABB541E24C1D0007CFF5C /* FlyingCivetTests.swift in Sources */,
+				AEBC273E1E2DAE6E00B9836E /* LocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
