@@ -131,7 +131,7 @@
                                             <constraint firstAttribute="width" constant="20" id="bkt-xv-eLm"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="nx4-Gb-yZ0">
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="nx4-Gb-yZ0">
                                         <rect key="frame" x="0.0" y="40" width="20" height="20"/>
                                         <accessibility key="accessibilityConfiguration" identifier="the-working-capital-checkmark">
                                             <bool key="isElement" value="YES"/>
@@ -165,16 +165,18 @@
                     <connections>
                         <outletCollection property="checkmarks" destination="B6o-nE-B5l" collectionClass="NSMutableArray" id="qrI-no-Gv0"/>
                         <outletCollection property="checkmarks" destination="nx4-Gb-yZ0" collectionClass="NSMutableArray" id="bEP-UV-rKy"/>
+                        <outletCollection property="locations" destination="vTX-f1-vJQ" collectionClass="NSMutableArray" id="HKa-Cy-uaL"/>
+                        <outletCollection property="locations" destination="ywB-gt-aO7" collectionClass="NSMutableArray" id="3Gr-1R-YiX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOI-vw-7IY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2126" y="136"/>
         </scene>
-        <!--View Controller-->
+        <!--Run View Controller-->
         <scene sceneID="ij2-Bg-hS3">
             <objects>
-                <viewController id="Beq-ao-4jL" sceneMemberID="viewController">
+                <viewController id="Beq-ao-4jL" customClass="RunViewController" customModule="FlyingCivet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wfv-F9-yT8"/>
                         <viewControllerLayoutGuide type="bottom" id="6lE-cz-Ant"/>

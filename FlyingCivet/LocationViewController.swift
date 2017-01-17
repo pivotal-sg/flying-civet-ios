@@ -2,7 +2,7 @@ import UIKit
 
 class LocationViewController: UIViewController {
 
-    
+    @IBOutlet var locations: [UIButton]!
     @IBOutlet var checkmarks: [UIImageView]!
     
     override func viewDidLoad() {
@@ -14,7 +14,15 @@ class LocationViewController: UIViewController {
     }
 
     @IBAction func locationSelected(_ sender: UIButton) {
-        checkmarks.forEach { $0.alpha = 0 }
-        checkmarks[sender.tag].alpha = 1
+        checkmarks.forEach { $0.alpha = $0.tag == sender.tag ? 1 : 0 }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let selectedCheckmark = checkmarks.filter { $0.alpha == 1 }.first!
+        let selectedLocation = locations.filter { $0.tag == selectedCheckmark.tag }.first!
+
+        let runController: RunViewController = segue.destination as! RunViewController
+        let locationText = selectedLocation.titleLabel?.text
+        runController.location = locationText!
     }
 }
