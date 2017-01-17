@@ -22,12 +22,31 @@ class FlyingCivetUITests: XCTestCase {
     
     
     func testKopiRunner() {
+        let app = XCUIApplication()
+
         let KOPI_RUN_TITLE_TEXT = "There are no active Kopi Runs right now."
-        let kopiRunTitleLabel = XCUIApplication().staticTexts[KOPI_RUN_TITLE_TEXT]
+        let kopiRunTitleLabel = app.staticTexts[KOPI_RUN_TITLE_TEXT]
         XCTAssert(kopiRunTitleLabel.exists, "\"\(KOPI_RUN_TITLE_TEXT)\" label does not exist")
         
         let START_KOPI_RUN_BUTTON_TEXT = "START A KOPI RUN"
-        let startKopiRunButton = XCUIApplication().buttons[START_KOPI_RUN_BUTTON_TEXT]
+        let startKopiRunButton = app.buttons[START_KOPI_RUN_BUTTON_TEXT]
         XCTAssert(startKopiRunButton.exists, "\"\(START_KOPI_RUN_BUTTON_TEXT)\" button does not exist")
+
+        startKopiRunButton.tap()
+        
+        let TOAST_BOX_TEXT = "Toast Box"
+        app.staticTexts[TOAST_BOX_TEXT].tap()
+        
+        let TOAST_BOX_CHECKMARK_IDENTIFIER = "toast-box-checkmark"
+        let toastBoxCheckmark = app.images[TOAST_BOX_CHECKMARK_IDENTIFIER]
+        XCTAssert(toastBoxCheckmark.isHittable, "\"\(TOAST_BOX_CHECKMARK_IDENTIFIER)\" image does not exist")
+        let THE_WORKING_CAPITAL_CHECKMARK_IDENTIFIER = "the-working-capital-checkmark"
+        XCTAssert(!app.images[THE_WORKING_CAPITAL_CHECKMARK_IDENTIFIER].exists, "\"\(THE_WORKING_CAPITAL_CHECKMARK_IDENTIFIER)\" image should not exist, but it did")
+        
+        let START_TAKING_ORDERS_BUTTON_TEXT = "START TAKING ORDERS"
+        let startTakingOrdersButton = app.buttons[START_TAKING_ORDERS_BUTTON_TEXT]
+        XCTAssert(startTakingOrdersButton.exists, "\"\(START_TAKING_ORDERS_BUTTON_TEXT)\" button does not exist")
+        
+        startTakingOrdersButton.tap()
     }
 }
