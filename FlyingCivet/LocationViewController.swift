@@ -23,6 +23,6 @@ class LocationViewController: UIViewController {
 
         let runController: RunViewController = segue.destination as! RunViewController
         let locationText = selectedLocation.titleLabel?.text
-        runController.location = locationText!
+        runController.location = locationText
     }
 }

@@ -244,6 +244,9 @@
                             <constraint firstAttribute="trailing" secondItem="VgZ-PG-CFx" secondAttribute="trailing" constant="30" id="YNK-dH-G46"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="locationLabel" destination="VgZ-PG-CFx" id="3Ge-R5-D1e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qu-ha-Ka0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

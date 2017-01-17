@@ -42,17 +42,21 @@ class FlyingCivetUITests: XCTestCase {
         XCTAssert(toastBoxCheckmark.isHittable, "\"\(TOAST_BOX_CHECKMARK_IDENTIFIER)\" image does not exist")
         let THE_WORKING_CAPITAL_CHECKMARK_IDENTIFIER = "the-working-capital-checkmark"
         XCTAssert(!app.images[THE_WORKING_CAPITAL_CHECKMARK_IDENTIFIER].exists, "\"\(THE_WORKING_CAPITAL_CHECKMARK_IDENTIFIER)\" image should not exist, but it did")
-        
+
+        let WORKING_CAPITAL_TEXT = "The Working Capital"
+        app.buttons[WORKING_CAPITAL_TEXT].tap()
+
         let START_TAKING_ORDERS_BUTTON_TEXT = "START TAKING ORDERS"
         let startTakingOrdersButton = app.buttons[START_TAKING_ORDERS_BUTTON_TEXT]
         XCTAssert(startTakingOrdersButton.exists, "\"\(START_TAKING_ORDERS_BUTTON_TEXT)\" button does not exist")
         
         startTakingOrdersButton.tap()
 
-        let KOPI_RUN_TO_TOAST_BOX_TEXT = "You are going on a Kopi Run to Toast Box"
-        let kopiRunToToastBoxLabel = app.staticTexts[KOPI_RUN_TO_TOAST_BOX_TEXT]
-        XCTAssert(kopiRunToToastBoxLabel.exists, "\"\(KOPI_RUN_TO_TOAST_BOX_TEXT)\" label does not exist")
+        let KOPI_RUN_TO_WORKING_CAPITAL_TEXT = "You are going on a Kopi Run to \(WORKING_CAPITAL_TEXT)"
+        let kopiRunToWorkingCapitalLabel = app.staticTexts[KOPI_RUN_TO_WORKING_CAPITAL_TEXT]
+        XCTAssert(kopiRunToWorkingCapitalLabel.exists, "\"\(KOPI_RUN_TO_WORKING_CAPITAL_TEXT)\" label does not exist")
 
         app.buttons["PLACE AN ORDER"].tap()
     }
+
 }
