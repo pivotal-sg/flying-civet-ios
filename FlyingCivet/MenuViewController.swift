@@ -2,15 +2,6 @@ import UIKit
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    struct MenuItem {
-        var name: String
-    }
-
-    struct MenuGroup {
-        var type: String
-        var menuItems: [MenuItem]
-    }
-
     var location: String!
     var menu = [MenuGroup]()
 
