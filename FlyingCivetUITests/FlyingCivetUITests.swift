@@ -47,7 +47,8 @@ class FlyingCivetUITests: XCTestCase {
         let kopiRunToWorkingCapitalLabel = app.staticTexts[KOPI_RUN_TO_WORKING_CAPITAL_TEXT]
         XCTAssert(kopiRunToWorkingCapitalLabel.exists, "\"\(KOPI_RUN_TO_WORKING_CAPITAL_TEXT)\" label does not exist")
 
-        app.buttons["PLACE AN ORDER"].tap()
+        let PLACE_AN_ORDER_TEXT = "PLACE AN ORDER"
+        app.buttons[PLACE_AN_ORDER_TEXT].tap()
 
         let WORKING_CAPITAL_ORDER_TITLE_TEXT = "What would you like from \(WORKING_CAPITAL_TEXT)?"
         let kopiRunOrderTitleText = app.staticTexts[WORKING_CAPITAL_ORDER_TITLE_TEXT]
@@ -60,5 +61,15 @@ class FlyingCivetUITests: XCTestCase {
         XCTAssert(kopiRunCustomizeTitleText.exists, "\"\(CUSTOMIZE_TITLE_TEXT)\" label does not exist")
 
         app.tables.staticTexts["O (Black)"].tap()
+
+        // Increase quantity
+        app.steppers.buttons["Increment"].tap()
+
+        let COFFEE_QUANTITY_LABEL_TEXT = "2"
+        let coffeeQuantityLabel = app.staticTexts[COFFEE_QUANTITY_LABEL_TEXT]
+        XCTAssert(coffeeQuantityLabel.exists, "\(COFFEE_QUANTITY_LABEL_TEXT) label does not exist")
+
+        let ADD_TO_BASKET_TEXT = "ADD TO BASKET"
+        app.buttons[ADD_TO_BASKET_TEXT].tap()
     }
 }

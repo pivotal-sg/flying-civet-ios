@@ -398,8 +398,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="KSd-Nj-Lib">
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="KSd-Nj-Lib">
                                         <rect key="frame" x="249" y="0.0" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="quantityChanged:" destination="YUU-IZ-vk3" eventType="valueChanged" id="f7j-og-bGx"/>
+                                        </connections>
                                     </stepper>
                                 </subviews>
                             </stackView>
@@ -425,6 +428,7 @@
                     <connections>
                         <outlet property="customizeLabel" destination="Sm0-dy-6pH" id="SzI-dd-Fj1"/>
                         <outlet property="customizeTable" destination="9vV-t2-4A6" id="aa7-C1-dRe"/>
+                        <outlet property="quantityLabel" destination="j5P-Uv-ETn" id="dHi-lo-4j0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6I-8U-uG6" userLabel="First Responder" sceneMemberID="firstResponder"/>

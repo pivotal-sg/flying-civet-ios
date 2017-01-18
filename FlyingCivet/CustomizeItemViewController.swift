@@ -6,6 +6,7 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
 
     @IBOutlet weak var customizeLabel: UILabel!
     @IBOutlet weak var customizeTable: UITableView!
+    @IBOutlet weak var quantityLabel: UILabel!
 
     var itemsManager: ItemOptionsManager!
 
@@ -54,6 +55,12 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
         checkmarkView.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         
         return checkmarkView
+    }
+
+    @IBAction func quantityChanged(_ sender: Any) {
+        let stepper: UIStepper = sender as! UIStepper
+        let stepperValue = Int(stepper.value)
+        quantityLabel.text = "\(stepperValue)"
     }
 
     private func customizeItemOptions() -> [ItemOptionGroup] {
