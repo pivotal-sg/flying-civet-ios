@@ -261,32 +261,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lgC-XE-GDq">
-                                <rect key="frame" x="0.0" y="161.5" width="375" height="415.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" textLabel="Gtc-8Q-l6P" style="IBUITableViewCellStyleDefault" id="B4x-n5-UCd">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B4x-n5-UCd" id="iNN-5U-EqB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gtc-8Q-l6P">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="YUU-IZ-vk3" kind="show" id="naN-pF-IBs"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftC-E7-E11">
                                 <rect key="frame" x="26" y="597" width="323" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -304,24 +278,50 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DDm-zU-Epr">
+                                <rect key="frame" x="0.0" y="161.5" width="375" height="415.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" textLabel="Tc7-LA-IxW" style="IBUITableViewCellStyleDefault" id="Y4a-mM-qY3">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y4a-mM-qY3" id="nJC-IC-cnw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tc7-LA-IxW">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="YUU-IZ-vk3" kind="presentation" id="fYp-2g-bUQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="vhi-PH-W5U" secondAttribute="trailing" constant="30" id="2Md-g9-22D"/>
+                            <constraint firstAttribute="trailing" secondItem="DDm-zU-Epr" secondAttribute="trailing" id="63k-Xb-UEd"/>
                             <constraint firstItem="84q-vJ-xck" firstAttribute="top" secondItem="ftC-E7-E11" secondAttribute="bottom" constant="20" id="7ft-Pl-lXp"/>
+                            <constraint firstItem="DDm-zU-Epr" firstAttribute="top" secondItem="vhi-PH-W5U" secondAttribute="bottom" constant="20" id="CvC-k7-OcW"/>
                             <constraint firstItem="vhi-PH-W5U" firstAttribute="leading" secondItem="4w9-im-3mZ" secondAttribute="leadingMargin" constant="30" id="G6d-h7-Euh"/>
                             <constraint firstItem="ftC-E7-E11" firstAttribute="leading" secondItem="4w9-im-3mZ" secondAttribute="leadingMargin" constant="10" id="PFZ-7K-qra"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ftC-E7-E11" secondAttribute="trailing" constant="10" id="cBJ-Pz-xLd"/>
-                            <constraint firstAttribute="trailing" secondItem="lgC-XE-GDq" secondAttribute="trailing" id="fDe-QQ-7ot"/>
+                            <constraint firstItem="ftC-E7-E11" firstAttribute="top" secondItem="DDm-zU-Epr" secondAttribute="bottom" constant="20" id="gxj-AC-kkh"/>
                             <constraint firstItem="vhi-PH-W5U" firstAttribute="top" secondItem="B7z-jp-mG1" secondAttribute="bottom" constant="20" id="htd-4Q-d9L"/>
-                            <constraint firstItem="lgC-XE-GDq" firstAttribute="top" secondItem="vhi-PH-W5U" secondAttribute="bottom" constant="20" id="szC-7v-RH7"/>
-                            <constraint firstItem="ftC-E7-E11" firstAttribute="top" secondItem="lgC-XE-GDq" secondAttribute="bottom" constant="20" id="t8t-QG-H38"/>
-                            <constraint firstItem="lgC-XE-GDq" firstAttribute="leading" secondItem="4w9-im-3mZ" secondAttribute="leading" id="yJr-I3-fSf"/>
+                            <constraint firstItem="DDm-zU-Epr" firstAttribute="leading" secondItem="4w9-im-3mZ" secondAttribute="leading" id="yiW-IC-9Jy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="locationLabel" destination="vhi-PH-W5U" id="BuD-EX-cEl"/>
-                        <outlet property="menuTable" destination="lgC-XE-GDq" id="vmq-Wu-4x3"/>
+                        <outlet property="menuTable" destination="DDm-zU-Epr" id="DDo-Em-ujF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlP-7B-XGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -379,6 +379,9 @@
                                 <state key="normal" title="ADD TO BASKET">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addToBasketClicked:" destination="YUU-IZ-vk3" eventType="touchUpInside" id="PCv-cB-IWM"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyT-H0-GNs">
                                 <rect key="frame" x="16" y="548" width="343" height="29"/>

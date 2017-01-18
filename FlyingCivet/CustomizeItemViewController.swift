@@ -63,6 +63,10 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
         quantityLabel.text = "\(stepperValue)"
     }
 
+    @IBAction func addToBasketClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+
     private func customizeItemOptions() -> [ItemOptionGroup] {
         let milkItemOptions = [
             ItemOption(name: "Normal (Condensed)", selected: true),
