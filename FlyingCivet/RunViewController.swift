@@ -12,5 +12,10 @@ class RunViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }    
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let menuController: MenuViewController = segue.destination as! MenuViewController
+        menuController.location = location
+    }
 }

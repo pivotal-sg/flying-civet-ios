@@ -1,11 +1,3 @@
-//
-//  FlyingCivetUITests.swift
-//  FlyingCivetUITests
-//
-//  Created by pivotal on 10/1/17.
-//  Copyright © 2017 pivotal. All rights reserved.
-//
-
 import XCTest
 
 class FlyingCivetUITests: XCTestCase {
@@ -57,6 +49,12 @@ class FlyingCivetUITests: XCTestCase {
         XCTAssert(kopiRunToWorkingCapitalLabel.exists, "\"\(KOPI_RUN_TO_WORKING_CAPITAL_TEXT)\" label does not exist")
 
         app.buttons["PLACE AN ORDER"].tap()
+
+        let WORKING_CAPITAL_ORDER_TITLE_TEXT = "What would you like from \(WORKING_CAPITAL_TEXT)?"
+        let kopiRunOrderTitleText = app.staticTexts[WORKING_CAPITAL_ORDER_TITLE_TEXT]
+        XCTAssert(kopiRunOrderTitleText.exists, "\"\(WORKING_CAPITAL_ORDER_TITLE_TEXT)\" label does not exist")
+
+        app.buttons["VIEW BASKET"].tap()
     }
 
 }

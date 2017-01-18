@@ -18,6 +18,8 @@
 		AEBC273E1E2DAE6E00B9836E /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC273C1E2DAE6E00B9836E /* LocationViewController.swift */; };
 		AEBC27401E2DEEBE00B9836E /* RunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC273F1E2DEEBE00B9836E /* RunViewController.swift */; };
 		AEBC27411E2DEEBE00B9836E /* RunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC273F1E2DEEBE00B9836E /* RunViewController.swift */; };
+		AEBC27431E2E171200B9836E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC27421E2E171200B9836E /* MenuViewController.swift */; };
+		AEBC27441E2E171200B9836E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC27421E2E171200B9836E /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,7 @@
 		AE9ABB601E24C1D0007CFF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEBC273C1E2DAE6E00B9836E /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		AEBC273F1E2DEEBE00B9836E /* RunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunViewController.swift; sourceTree = "<group>"; };
+		AEBC27421E2E171200B9836E /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,7 @@
 				AE9ABB471E24C1D0007CFF5C /* LaunchScreen.storyboard */,
 				AEBC273C1E2DAE6E00B9836E /* LocationViewController.swift */,
 				AE9ABB421E24C1D0007CFF5C /* Main.storyboard */,
+				AEBC27421E2E171200B9836E /* MenuViewController.swift */,
 				AEBC273F1E2DEEBE00B9836E /* RunViewController.swift */,
 				AE9ABB401E24C1D0007CFF5C /* ViewController.swift */,
 			);
@@ -271,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEBC273D1E2DAE6E00B9836E /* LocationViewController.swift in Sources */,
+				AEBC27431E2E171200B9836E /* MenuViewController.swift in Sources */,
 				AE9ABB411E24C1D0007CFF5C /* ViewController.swift in Sources */,
 				AEBC27401E2DEEBE00B9836E /* RunViewController.swift in Sources */,
 				AE9ABB3F1E24C1D0007CFF5C /* AppDelegate.swift in Sources */,
@@ -284,6 +289,7 @@
 				AE9ABB541E24C1D0007CFF5C /* FlyingCivetTests.swift in Sources */,
 				AEBC27411E2DEEBE00B9836E /* RunViewController.swift in Sources */,
 				AEBC273E1E2DAE6E00B9836E /* LocationViewController.swift in Sources */,
+				AEBC27441E2E171200B9836E /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
