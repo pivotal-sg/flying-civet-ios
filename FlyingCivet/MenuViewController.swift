@@ -2,28 +2,40 @@ import UIKit
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    struct MenuItem {
+        var name: String
+    }
+
+    struct MenuGroup {
+        var type: String
+        var menuItems: [MenuItem]
+    }
+
+    var location: String!
+    var menu = [MenuGroup]()
+
     @IBOutlet weak var menuTable: UITableView!
     @IBOutlet weak var locationLabel: UILabel!
-    var location: String!
-
-    typealias MenuGroup = [String: AnyObject]
-    var menu = [MenuGroup]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         menuTable.delegate = self
         menuTable.dataSource = self
 
-        var menuGroup = MenuGroup()
-        menuGroup["title"] = "Drinks" as AnyObject
-        menuGroup["items"] = ["Kopi (Coffee)", "Teh (Tea)", "Yuanyang (Half Coffee, Half Tea)"] as AnyObject
-
+        var menuItems = [
+            MenuItem(name: "Kopi (Coffee)"),
+            MenuItem(name: "Teh (Tea)"),
+            MenuItem(name: "Yuanyang (Half Coffee, Half Tea)")
+        ]
+        var menuGroup = MenuGroup(type: "Drinks", menuItems: menuItems)
         menu.append(menuGroup)
 
-        menuGroup = MenuGroup()
-        menuGroup["title"] = "Toasts" as AnyObject
-        menuGroup["items"] = ["Kaya Toast", "Butter Sugar Toast", "Peanut Butter Toast"] as AnyObject
-
+        menuItems = [
+            MenuItem(name: "Kaya Toast"),
+            MenuItem(name: "Butter Sugar Toast"),
+            MenuItem(name: "Peanut Butter Toast")
+        ]
+        menuGroup = MenuGroup(type: "Toasts", menuItems: menuItems)
         menu.append(menuGroup)
 
         locationLabel.text = "What would you like from \(location!)?"
@@ -41,8 +53,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let items: [String] = getMenuGroup(section: section)["items"] as! [String]
-        return items.count
+        return getMenuGroup(section: section).menuItems.count
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,7 +61,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return getMenuGroup(section: section)["title"]?.uppercased
+        return getMenuGroup(section: section).type.uppercased()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let customizeItemController: CustomizeItemViewController = segue.destination as! CustomizeItemViewController
@@ -63,8 +74,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func getMenuItem(indexPath: IndexPath) -> String {
         let menuGroup = getMenuGroup(section: indexPath.section)
-        let items: [String] = menuGroup["items"] as! [String]
-        return items[indexPath.row]
+        return menuGroup.menuItems[indexPath.row].name
     }
 
 }

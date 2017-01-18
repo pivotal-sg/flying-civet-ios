@@ -33,7 +33,7 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemGroupCell", for: indexPath)
-        let itemOption = getItemOption(section: indexPath.section, row: indexPath.row)
+        let itemOption = getItemOption(indexPath: indexPath)
         cell.textLabel?.text = itemOption.name
 
         return cell
@@ -55,8 +55,8 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
         return options[section] as ItemOptionGroup
     }
 
-    func getItemOption(section: Int, row: Int) -> ItemOption {
-        return getItemOptionGroup(section: section).itemOptions[row]
+    func getItemOption(indexPath: IndexPath) -> ItemOption {
+        return getItemOptionGroup(section: indexPath.section).itemOptions[indexPath.row]
     }
 
 }
