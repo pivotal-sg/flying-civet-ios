@@ -20,6 +20,8 @@
 		AEBC27411E2DEEBE00B9836E /* RunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC273F1E2DEEBE00B9836E /* RunViewController.swift */; };
 		AEBC27431E2E171200B9836E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC27421E2E171200B9836E /* MenuViewController.swift */; };
 		AEBC27441E2E171200B9836E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC27421E2E171200B9836E /* MenuViewController.swift */; };
+		AEBC27461E2F08C100B9836E /* CustomizeItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC27451E2F08C100B9836E /* CustomizeItemViewController.swift */; };
+		AEBC27471E2F08C100B9836E /* CustomizeItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC27451E2F08C100B9836E /* CustomizeItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,7 @@
 		AEBC273C1E2DAE6E00B9836E /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		AEBC273F1E2DEEBE00B9836E /* RunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunViewController.swift; sourceTree = "<group>"; };
 		AEBC27421E2E171200B9836E /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		AEBC27451E2F08C100B9836E /* CustomizeItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,7 @@
 			children = (
 				AE9ABB3E1E24C1D0007CFF5C /* AppDelegate.swift */,
 				AE9ABB451E24C1D0007CFF5C /* Assets.xcassets */,
+				AEBC27451E2F08C100B9836E /* CustomizeItemViewController.swift */,
 				AE9ABB4A1E24C1D0007CFF5C /* Info.plist */,
 				AE9ABB471E24C1D0007CFF5C /* LaunchScreen.storyboard */,
 				AEBC273C1E2DAE6E00B9836E /* LocationViewController.swift */,
@@ -279,6 +283,7 @@
 				AE9ABB411E24C1D0007CFF5C /* ViewController.swift in Sources */,
 				AEBC27401E2DEEBE00B9836E /* RunViewController.swift in Sources */,
 				AE9ABB3F1E24C1D0007CFF5C /* AppDelegate.swift in Sources */,
+				AEBC27461E2F08C100B9836E /* CustomizeItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +294,7 @@
 				AE9ABB541E24C1D0007CFF5C /* FlyingCivetTests.swift in Sources */,
 				AEBC27411E2DEEBE00B9836E /* RunViewController.swift in Sources */,
 				AEBC273E1E2DAE6E00B9836E /* LocationViewController.swift in Sources */,
+				AEBC27471E2F08C100B9836E /* CustomizeItemViewController.swift in Sources */,
 				AEBC27441E2E171200B9836E /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

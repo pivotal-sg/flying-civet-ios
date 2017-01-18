@@ -54,7 +54,11 @@ class FlyingCivetUITests: XCTestCase {
         let kopiRunOrderTitleText = app.staticTexts[WORKING_CAPITAL_ORDER_TITLE_TEXT]
         XCTAssert(kopiRunOrderTitleText.exists, "\"\(WORKING_CAPITAL_ORDER_TITLE_TEXT)\" label does not exist")
 
-        app.buttons["VIEW BASKET"].tap()
+        app.tables.staticTexts["Kopi (Coffee)"].tap()
+
+        let CUSTOMIZE_TITLE_TEXT = "How would you like your Kopi (Coffee)?"
+        let kopiRunCustomizeTitleText = app.staticTexts[CUSTOMIZE_TITLE_TEXT]
+        XCTAssert(kopiRunCustomizeTitleText.exists, "\"\(CUSTOMIZE_TITLE_TEXT)\" label does not exist")
     }
 
 }

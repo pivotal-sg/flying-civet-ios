@@ -281,6 +281,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="YUU-IZ-vk3" kind="show" id="naN-pF-IBs"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -324,6 +327,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlP-7B-XGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4005.5999999999999" y="134.48275862068968"/>
+        </scene>
+        <!--Customize Item-->
+        <scene sceneID="Gms-oH-g2N">
+            <objects>
+                <viewController title="Customize Item" id="YUU-IZ-vk3" customClass="CustomizeItemViewController" customModule="FlyingCivet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PGO-w7-aUj"/>
+                        <viewControllerLayoutGuide type="bottom" id="ESn-tf-xkd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Miu-bF-n93">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How would you like your Kopi?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sm0-dy-6pH">
+                                <rect key="frame" x="46" y="94" width="283" height="57.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Sm0-dy-6pH" firstAttribute="top" secondItem="PGO-w7-aUj" secondAttribute="bottom" constant="30" id="UGE-ZG-G5U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sm0-dy-6pH" secondAttribute="trailing" constant="30" id="e5P-Fp-U1M"/>
+                            <constraint firstItem="Sm0-dy-6pH" firstAttribute="leading" secondItem="Miu-bF-n93" secondAttribute="leadingMargin" constant="30" id="moJ-Z3-dFy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="customizeLabel" destination="Sm0-dy-6pH" id="SzI-dd-Fj1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r6I-8U-uG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4809" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DxD-Oi-u6X">

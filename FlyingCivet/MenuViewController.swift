@@ -35,7 +35,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
-        cell.textLabel?.text = getMenuItem(section: indexPath.section, row: indexPath.row)
+        cell.textLabel?.text = getMenuItem(indexPath: indexPath)
 
         return cell
     }
@@ -52,14 +52,19 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return getMenuGroup(section: section)["title"]?.uppercased
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let customizeItemController: CustomizeItemViewController = segue.destination as! CustomizeItemViewController
+        customizeItemController.menuItem = getMenuItem(indexPath: menuTable.indexPathForSelectedRow!)
+    }
 
     func getMenuGroup(section: Int) -> MenuGroup {
         return menu[section] as MenuGroup
     }
 
-    func getMenuItem(section: Int, row: Int) -> String {
-        let menuGroup = getMenuGroup(section: section)
+    func getMenuItem(indexPath: IndexPath) -> String {
+        let menuGroup = getMenuGroup(section: indexPath.section)
         let items: [String] = menuGroup["items"] as! [String]
-        return items[row]
+        return items[indexPath.row]
     }
+
 }
