@@ -70,6 +70,10 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
         dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func cancelClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+
     private func makeOrderItem() -> OrderItem {
         let quantity: Int = Int(quantityLabel.text!)!
         return OrderItem(item: menuItem,

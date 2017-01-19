@@ -68,8 +68,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return getMenuGroup(section: section).type.uppercased()
     }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let customizeItemController: CustomizeItemViewController = segue.destination as! CustomizeItemViewController
+        let destinationController = segue.destination as! UINavigationController
+        let customizeItemController: CustomizeItemViewController = destinationController.topViewController as! CustomizeItemViewController
         customizeItemController.menuItem = getMenuItem(indexPath: menuTable.indexPathForSelectedRow!)
         customizeItemController.menuDelegate = self
     }
