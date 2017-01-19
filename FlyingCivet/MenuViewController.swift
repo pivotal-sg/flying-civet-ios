@@ -41,7 +41,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        basketLabel.text = "\(basket.count)"
+
+        let basketCount = basket.reduce(0) { return $0 + $1.quantity }
+        basketLabel.text = "\(basketCount)"
     }
 
     override func didReceiveMemoryWarning() {

@@ -82,8 +82,8 @@ class FlyingCivetUITests: XCTestCase {
         let ADD_TO_BASKET_TEXT = "ADD TO BASKET"
         app.buttons[ADD_TO_BASKET_TEXT].tap()
 
-        // Basket update size to 1
-        let UPDATED_BASKET_COUNT_TEXT = "1"
+        // Basket update size to 2
+        let UPDATED_BASKET_COUNT_TEXT = "2"
         let updatedBasketCountText = app.staticTexts[UPDATED_BASKET_COUNT_TEXT]
         XCTAssert(updatedBasketCountText.exists, "\"\(UPDATED_BASKET_COUNT_TEXT)\" label does not exist")
 
