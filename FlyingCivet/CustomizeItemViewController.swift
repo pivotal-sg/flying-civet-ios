@@ -14,7 +14,7 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        itemsManager = ItemOptionsManager(options: customizeItemOptions())
+        itemsManager = ItemOptionsManager(options: menuItem.options)
 
         customizeTable.dataSource = self
         customizeTable.delegate = self
@@ -85,40 +85,6 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
         return itemsManager.getSelectedItemOptions()
     }
 
-    private func customizeItemOptions() -> [ItemOptionGroup] {
-        let milkItemOptions = [
-            ItemOption(name: "Normal", selected: true),
-            ItemOption(name: "C (Evaporated)", selected: false),
-            ItemOption(name: "O (Black)", selected: false)
-        ]
 
-        let milkItemOptionGroup = ItemOptionGroup(type: "Milk", itemOptions: milkItemOptions)
-
-        let strengthItemOptions = [
-            ItemOption(name: "Normal", selected: true),
-            ItemOption(name: "Gau (Extra Strong)", selected: false),
-            ItemOption(name: "Poh (Less Strong)", selected: false)
-        ]
-
-        let strengthItemOptionGroup = ItemOptionGroup(type: "Strength", itemOptions: strengthItemOptions)
-
-        let sweetnessItemOptions = [
-            ItemOption(name: "Normal", selected: true),
-            ItemOption(name: "Gah Dai (Extra Sweet)", selected: false),
-            ItemOption(name: "Siew Dai (Less Sweet)", selected: false),
-            ItemOption(name: "Kosong (Unsweetened)", selected: false)
-        ]
-
-        let sweetnessItemOptionGroup = ItemOptionGroup(type: "Sweetness", itemOptions: sweetnessItemOptions)
-
-        let temperatureItemOptions = [
-            ItemOption(name: "Hot", selected: true),
-            ItemOption(name: "Peng (Iced)", selected: false)
-        ]
-
-        let temperatureItemOptionGroup = ItemOptionGroup(type: "Temperature", itemOptions: temperatureItemOptions)
-        
-        return [milkItemOptionGroup, strengthItemOptionGroup, sweetnessItemOptionGroup, temperatureItemOptionGroup]
-    }
     
 }
