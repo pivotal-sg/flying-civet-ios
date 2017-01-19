@@ -1,12 +1,19 @@
 import UIKit
 
-class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+protocol MenuDelegate {
+    func addToBasket(orderItem: OrderItem)
+}
+
+class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuDelegate {
 
     var location: String!
+
     var menu = [MenuGroup]()
+    var basket = [OrderItem]()
 
     @IBOutlet weak var menuTable: UITableView!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var basketLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +39,18 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         locationLabel.text = "What would you like from \(location!)?"
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        basketLabel.text = "\(basket.count)"
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
-        cell.textLabel?.text = getMenuItem(indexPath: indexPath)
+        cell.textLabel?.text = getMenuItem(indexPath: indexPath).name
 
         return cell
     }
@@ -57,15 +69,19 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let customizeItemController: CustomizeItemViewController = segue.destination as! CustomizeItemViewController
         customizeItemController.menuItem = getMenuItem(indexPath: menuTable.indexPathForSelectedRow!)
+        customizeItemController.menuDelegate = self
     }
 
     func getMenuGroup(section: Int) -> MenuGroup {
         return menu[section] as MenuGroup
     }
 
-    func getMenuItem(indexPath: IndexPath) -> String {
+    func getMenuItem(indexPath: IndexPath) -> MenuItem {
         let menuGroup = getMenuGroup(section: indexPath.section)
-        return menuGroup.menuItems[indexPath.row].name
+        return menuGroup.menuItems[indexPath.row]
     }
 
+    func addToBasket(orderItem: OrderItem) {
+        basket.append(orderItem)
+    }
 }

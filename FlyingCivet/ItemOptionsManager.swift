@@ -1,6 +1,8 @@
 import Foundation
 
 class ItemOptionsManager {
+    let DEFAULT_ITEM_OPTION = "Normal"
+
     var options = [ItemOptionGroup]()
 
     init(options: [ItemOptionGroup]) {
@@ -28,5 +30,12 @@ class ItemOptionsManager {
         options[indexPath.section] = ItemOptionGroup(
             type: itemOptionGroup.type,
             itemOptions: newItemOptions)
+    }
+
+    func getSelectedItemOptions() -> [ItemOption] {
+        return options
+            .flatMap { $0.itemOptions }
+            .filter { $0.selected }
+            .filter { $0.name != DEFAULT_ITEM_OPTION }
     }
 }

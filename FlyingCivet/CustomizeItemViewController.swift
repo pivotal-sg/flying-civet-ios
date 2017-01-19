@@ -2,13 +2,14 @@ import UIKit
 
 class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var menuItem: String!
+    var menuItem: MenuItem!
 
     @IBOutlet weak var customizeLabel: UILabel!
     @IBOutlet weak var customizeTable: UITableView!
     @IBOutlet weak var quantityLabel: UILabel!
 
     var itemsManager: ItemOptionsManager!
+    var menuDelegate: MenuDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,7 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
         customizeTable.dataSource = self
         customizeTable.delegate = self
 
-        customizeLabel.text = "How would you like your \(menuItem!)?"
+        customizeLabel.text = "How would you like your \(menuItem.name)?"
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -28,6 +29,7 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
 
         cell.textLabel?.text = itemOption.name
         cell.accessoryView = itemOption.selected ? getCheckmarkView() : nil
+        cell.isSelected = itemOption.selected
 
         return cell
     }
@@ -64,12 +66,24 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
     }
 
     @IBAction func addToBasketClicked(_ sender: Any) {
+        menuDelegate.addToBasket(orderItem: makeOrderItem())
         dismiss(animated: true, completion: nil)
+    }
+
+    private func makeOrderItem() -> OrderItem {
+        let quantity: Int = Int(quantityLabel.text!)!
+        return OrderItem(item: menuItem,
+                         itemOptions: getItemOptions(),
+                         quantity: quantity)
+    }
+
+    private func getItemOptions() -> [ItemOption] {
+        return itemsManager.getSelectedItemOptions()
     }
 
     private func customizeItemOptions() -> [ItemOptionGroup] {
         let milkItemOptions = [
-            ItemOption(name: "Normal (Condensed)", selected: true),
+            ItemOption(name: "Normal", selected: true),
             ItemOption(name: "C (Evaporated)", selected: false),
             ItemOption(name: "O (Black)", selected: false)
         ]
