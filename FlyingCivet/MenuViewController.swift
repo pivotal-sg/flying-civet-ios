@@ -54,7 +54,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let currentMenuItem = getMenuItem(indexPath: indexPath)
 
         let count = shoppingCart.count(of: currentMenuItem)
-        cell.textLabel?.text = count > 0 ? "\(count)X" : ""
+        cell.textLabel?.text = count > 0 ? "\(count)x" : ""
         cell.detailTextLabel?.text = currentMenuItem.name
 
         return cell
