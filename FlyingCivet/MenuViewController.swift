@@ -41,8 +41,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let basketCount = shoppingCart.count()
-        basketLabel.text = "\(basketCount)"
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,6 +78,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             performSegue(withIdentifier: "showCustomizItemScreen", sender: self)
         } else {
             shoppingCart.addToCart(item: selectedMenuItem)
+            updateBasketCount()
             tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
         }
     }
@@ -101,6 +101,12 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func addToBasket(orderItem: OrderItem) {
         shoppingCart.addToCart(item: orderItem)
+        updateBasketCount()
+    }
+
+    private func updateBasketCount() {
+        let basketCount = shoppingCart.count()
+        basketLabel.text = "\(basketCount)"
     }
 
     private func availableDrinkOptions() -> [ItemOptionGroup] {
