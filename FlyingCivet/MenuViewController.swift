@@ -8,7 +8,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     var location: String!
 
-    var menu = [MenuGroup]()
+    var menuManager: MenuItemsManager!
     var shoppingCart = ShoppingCartManager()
 
     @IBOutlet weak var menuTable: UITableView!
@@ -20,21 +20,19 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         menuTable.delegate = self
         menuTable.dataSource = self
 
-        let typesOfDrinks = [
-            MenuItem(name: "Kopi (Coffee)", options: availableDrinkOptions()),
-            MenuItem(name: "Teh (Tea)", options: availableDrinkOptions()),
-            MenuItem(name: "Yuanyang (Half Coffee, Half Tea)", options: [])
+        let drinks = [
+            MenuItem(name: "Kopi (Coffee)", type: ItemType.drink, variants: availableDrinkOptions()),
+            MenuItem(name: "Teh (Tea)", type: ItemType.drink, variants: availableDrinkOptions()),
+            MenuItem(name: "Yuanyang (Half Coffee, Half Tea)", type: ItemType.drink, variants: [])
         ]
-        let drinks = MenuGroup(type: "Drinks", menuItems: typesOfDrinks)
 
-        let typesOfToasts = [
-            MenuItem(name: "Kaya Toast", options: []),
-            MenuItem(name: "Butter Sugar Toast", options: []),
-            MenuItem(name: "Peanut Butter Toast", options: [])
+        let toasts = [
+            MenuItem(name: "Kaya Toast", type: ItemType.toast, variants: []),
+            MenuItem(name: "Butter Sugar Toast", type: ItemType.toast, variants: []),
+            MenuItem(name: "Peanut Butter Toast", type: ItemType.toast, variants: [])
         ]
-        let toasts = MenuGroup(type: "Toasts", menuItems: typesOfToasts)
 
-        menu = [drinks, toasts]
+        menuManager = MenuItemsManager(menuItems: drinks + toasts)
 
         locationLabel.text = "What would you like from \(location!)?"
     }
@@ -60,22 +58,22 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return getMenuGroup(section: section).menuItems.count
+        return menuManager.getMenuItemsFor(section: section).count
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return menu.count
+        return menuManager.itemTypes.count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return getMenuGroup(section: section).type.uppercased()
+        return String(describing: menuManager.getItemType(section: section)).uppercased()
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedMenuItem = getMenuItem(indexPath: indexPath)
 
         if selectedMenuItem.hasVariants() {
-            performSegue(withIdentifier: "showCustomizItemScreen", sender: self)
+            performSegue(withIdentifier: "showCustomizeItemScreen", sender: self)
         } else {
             shoppingCart.addToCart(item: selectedMenuItem)
             updateBasketCount()
@@ -86,17 +84,18 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationController = segue.destination as! UINavigationController
         let customizeItemController: CustomizeItemViewController = destinationController.topViewController as! CustomizeItemViewController
-        customizeItemController.menuItem = getMenuItem(indexPath: menuTable.indexPathForSelectedRow!)
+        let selectedMenuItem = getMenuItem(indexPath: menuTable.indexPathForSelectedRow!)
+        customizeItemController.menuItem = selectedMenuItem
+
+        let itemsManager =  ItemVariantsManager(variants: selectedMenuItem.variants)
+        itemsManager.chosenVariants = defaultDrinkOptions()
+
+        customizeItemController.itemsManager = itemsManager
         customizeItemController.menuDelegate = self
     }
 
-    func getMenuGroup(section: Int) -> MenuGroup {
-        return menu[section] as MenuGroup
-    }
-
     func getMenuItem(indexPath: IndexPath) -> MenuItem {
-        let menuGroup = getMenuGroup(section: indexPath.section)
-        return menuGroup.menuItems[indexPath.row]
+        return menuManager.getMenuItem(indexPath: indexPath)
     }
 
     func addToBasket(orderItem: OrderItem) {
@@ -109,39 +108,41 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         basketLabel.text = "\(basketCount)"
     }
 
-    private func availableDrinkOptions() -> [ItemOptionGroup] {
-        let milkItemOptions = [
-            ItemOption(name: "Normal", selected: true),
-            ItemOption(name: "C (Evaporated)", selected: false),
-            ItemOption(name: "O (Black)", selected: false)
+    private func availableDrinkOptions() -> [ItemVariant] {
+        let MilkItemVariants = [
+            ItemVariant(name: "Normal", type: ItemVariantType.Milk),
+            ItemVariant(name: "C (Evaporated)", type: ItemVariantType.Milk),
+            ItemVariant(name: "O (Black)", type: ItemVariantType.Milk)
         ]
 
-        let milkItemOptionGroup = ItemOptionGroup(type: "Milk", itemOptions: milkItemOptions)
-
-        let strengthItemOptions = [
-            ItemOption(name: "Normal", selected: true),
-            ItemOption(name: "Gau (Extra Strong)", selected: false),
-            ItemOption(name: "Poh (Less Strong)", selected: false)
+        let StrengthItemVariants = [
+            ItemVariant(name: "Normal", type: ItemVariantType.Strength),
+            ItemVariant(name: "Gau (Extra Strong)", type: ItemVariantType.Strength),
+            ItemVariant(name: "Poh (Less Strong)", type: ItemVariantType.Strength)
         ]
 
-        let strengthItemOptionGroup = ItemOptionGroup(type: "Strength", itemOptions: strengthItemOptions)
-
-        let sweetnessItemOptions = [
-            ItemOption(name: "Normal", selected: true),
-            ItemOption(name: "Gah Dai (Extra Sweet)", selected: false),
-            ItemOption(name: "Siew Dai (Less Sweet)", selected: false),
-            ItemOption(name: "Kosong (Unsweetened)", selected: false)
+        let SweetnessItemVariants = [
+            ItemVariant(name: "Normal", type: ItemVariantType.Sweetness),
+            ItemVariant(name: "Gah Dai (Extra Sweet)", type: ItemVariantType.Sweetness),
+            ItemVariant(name: "Siew Dai (Less Sweet)", type: ItemVariantType.Sweetness),
+            ItemVariant(name: "Kosong (Unsweetened)", type: ItemVariantType.Sweetness)
         ]
 
-        let sweetnessItemOptionGroup = ItemOptionGroup(type: "Sweetness", itemOptions: sweetnessItemOptions)
-
-        let temperatureItemOptions = [
-            ItemOption(name: "Hot", selected: true),
-            ItemOption(name: "Peng (Iced)", selected: false)
+        let TemperatureItemVariants = [
+            ItemVariant(name: "Hot", type: ItemVariantType.Temperature),
+            ItemVariant(name: "Peng (Iced)", type: ItemVariantType.Temperature)
         ]
 
-        let temperatureItemOptionGroup = ItemOptionGroup(type: "Temperature", itemOptions: temperatureItemOptions)
-        
-        return [milkItemOptionGroup, strengthItemOptionGroup, sweetnessItemOptionGroup, temperatureItemOptionGroup]
+        return MilkItemVariants + StrengthItemVariants + SweetnessItemVariants + TemperatureItemVariants
     }
+
+    private func defaultDrinkOptions() -> [ItemVariant] {
+        return [
+            ItemVariant(name: "Normal", type: ItemVariantType.Milk),
+            ItemVariant(name: "Normal", type: ItemVariantType.Strength),
+            ItemVariant(name: "Normal", type: ItemVariantType.Sweetness),
+            ItemVariant(name: "Hot", type: ItemVariantType.Temperature),
+        ]
+    }
+
 }

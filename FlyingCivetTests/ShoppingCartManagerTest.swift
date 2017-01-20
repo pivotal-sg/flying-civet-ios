@@ -8,7 +8,7 @@ class ShoppingCartManagerTest: XCTestCase {
 
         let fooMenuItem = makeMenuItem(name: "Foo")
         let fooOrderItem = OrderItem(item: fooMenuItem,
-                                     itemOptions: [/* No variants*/],
+                                     variants: [/* No variants*/],
                                      quantity: 3)
 
         manager.addToCart(item: fooOrderItem)
@@ -35,7 +35,7 @@ class ShoppingCartManagerTest: XCTestCase {
 
         let fooMenuItem = makeMenuItem(name: "Foo")
         let fooOrderItem = OrderItem(item: fooMenuItem,
-                                     itemOptions: [/* No variants*/],
+                                     variants: [/* No variants*/],
                                      quantity: 3)
 
         manager.addToCart(item: fooOrderItem)
@@ -45,7 +45,10 @@ class ShoppingCartManagerTest: XCTestCase {
     }
 
     private func makeMenuItem(name: String) -> MenuItem {
-        return MenuItem(name: name, options: [/* Foo has no variants */])
+        return MenuItem(
+            name: name,
+            type: ItemType.drink,
+            variants: [/* Foo has no variants */])
     }
 
     func testCount_allItems() {
@@ -53,7 +56,7 @@ class ShoppingCartManagerTest: XCTestCase {
 
         let fooMenuItem = makeMenuItem(name: "Foo")
         let fooOrderItem = OrderItem(item: fooMenuItem,
-                                     itemOptions: [/* No variants*/],
+                                     variants: [/* No variants*/],
                                      quantity: 3)
 
         manager.addToCart(item: fooOrderItem)
@@ -67,7 +70,7 @@ class ShoppingCartManagerTest: XCTestCase {
 
         let fooMenuItem = makeMenuItem(name: "Foo")
         let fooOrderItem = OrderItem(item: fooMenuItem,
-                                     itemOptions: [/* No variants*/],
+                                     variants: [/* No variants*/],
                                      quantity: 3)
         
         manager.addToCart(item: fooOrderItem)

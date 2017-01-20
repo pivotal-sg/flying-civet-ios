@@ -8,13 +8,11 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var customizeTable: UITableView!
     @IBOutlet weak var quantityLabel: UILabel!
 
-    var itemsManager: ItemOptionsManager!
+    var itemsManager: ItemVariantsManager!
     var menuDelegate: MenuDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        itemsManager = ItemOptionsManager(options: menuItem.options)
 
         customizeTable.dataSource = self
         customizeTable.delegate = self
@@ -25,30 +23,30 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemGroupCell", for: indexPath)
 
-        let itemOption = itemsManager.getItem(indexPath: indexPath)
+        let itemOption = itemsManager.getItemVariant(indexPath: indexPath)
 
         cell.textLabel?.text = itemOption.name
-        cell.accessoryView = itemOption.selected ? getCheckmarkView() : nil
-        cell.isSelected = itemOption.selected
+        cell.accessoryView = itemsManager.variantSelected(variant: itemOption) ? getCheckmarkView() : nil
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        itemsManager.didSelectItemOptionAt(indexPath: indexPath)
+        itemsManager.chooseVariant(indexPath: indexPath)
         tableView.reloadSections([indexPath.section], with: UITableViewRowAnimation.none)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemsManager.getGroup(section: section).itemOptions.count
+        return itemsManager.numberOfVariants(section: section)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return itemsManager.options.count
+        return itemsManager.variantTypes.count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return itemsManager.getGroup(section: section).type.uppercased()
+        let itemVariantType = itemsManager.getVariantType(section: section)
+        return itemVariantType.rawValue
     }
 
     private func getCheckmarkView() -> UIImageView{
@@ -77,14 +75,7 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
     private func makeOrderItem() -> OrderItem {
         let quantity: Int = Int(quantityLabel.text!)!
         return OrderItem(item: menuItem,
-                         itemOptions: getItemOptions(),
+                         variants: itemsManager.chosenVariants,
                          quantity: quantity)
-    }
-
-    private func getItemOptions() -> [ItemOption] {
-        return itemsManager.getSelectedItemOptions()
-    }
-
-
-    
+    }    
 }

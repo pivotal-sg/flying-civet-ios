@@ -8,7 +8,7 @@ class ShoppingCartManager {
     }
 
     func addToCart(item: MenuItem) {
-        let item = OrderItem(item: item, itemOptions: [], quantity: 1)
+        let item = OrderItem(item: item, variants: [], quantity: 1)
         items.append(item)
     }
 
