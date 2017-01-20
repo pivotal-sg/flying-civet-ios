@@ -47,7 +47,7 @@ class ShoppingCartManagerTest: XCTestCase {
     private func makeMenuItem(name: String) -> MenuItem {
         return MenuItem(
             name: name,
-            type: ItemType.drink,
+            type: ItemType.Drink,
             variants: [/* Foo has no variants */])
     }
 

@@ -1,23 +1,33 @@
 import Foundation
 
 class MenuItemsManager {
-    let menuItems: [MenuItem]
-    let itemTypes: [ItemType]
+    let items: [MenuItem]!
+    let itemTypes: [ItemType]!
 
-    init(menuItems: [MenuItem]) {
-        self.menuItems = menuItems
-        self.itemTypes = Array(Set(menuItems.map { $0.type }))
+    init(dataSource: MenuDataSource) {
+        self.items = dataSource.getMenuItems()
+        self.itemTypes = items
+            .map { $0.type }
+            .reduce([]) { acc, itemType in
+                return acc.contains(itemType) ? acc : acc + [ itemType ]
+        }
     }
 
     func getMenuItem(indexPath: IndexPath) -> MenuItem {
-        return getMenuItemsFor(section: indexPath.section)[indexPath.row]
+        let selectedMenuType = getMenuType(section: indexPath.section)
+        return getMenuItems(type: selectedMenuType)[indexPath.row]
     }
 
-    func getMenuItemsFor(section: Int) -> [MenuItem] {
-        return menuItems.filter{ $0.type == getItemType(section: section) }
+    func getMenuItems(type: ItemType) -> [MenuItem] {
+        return items.filter { $0.type == type }
     }
 
-    func getItemType(section: Int) -> ItemType {
+    func numberOfItems(section: Int) -> Int {
+        let menuType = getMenuType(section: section)
+        return getMenuItems(type: menuType).count
+    }
+
+    func getMenuType(section: Int) -> ItemType {
         return itemTypes[section]
     }
 }

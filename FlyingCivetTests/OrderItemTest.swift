@@ -45,7 +45,7 @@ class OrderItemTest: XCTestCase {
     }
 
     private func buildMenuItem() -> MenuItem {
-        return MenuItem(name: "foo", type: ItemType.drink, variants: buildVariants())
+        return MenuItem(name: "foo", type: ItemType.Drink, variants: buildVariants())
     }
 
     private func buildVariants() -> [ItemVariant] {

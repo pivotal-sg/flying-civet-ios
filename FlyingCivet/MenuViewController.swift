@@ -21,18 +21,19 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         menuTable.dataSource = self
 
         let drinks = [
-            MenuItem(name: "Kopi (Coffee)", type: ItemType.drink, variants: availableDrinkOptions()),
-            MenuItem(name: "Teh (Tea)", type: ItemType.drink, variants: availableDrinkOptions()),
-            MenuItem(name: "Yuanyang (Half Coffee, Half Tea)", type: ItemType.drink, variants: [])
+            MenuItem(name: "Kopi (Coffee)", type: .Drink, variants: availableDrinkOptions()),
+            MenuItem(name: "Teh (Tea)", type: .Drink, variants: availableDrinkOptions()),
+            MenuItem(name: "Yuanyang (Half Coffee, Half Tea)", type: .Drink, variants: [])
         ]
 
         let toasts = [
-            MenuItem(name: "Kaya Toast", type: ItemType.toast, variants: []),
-            MenuItem(name: "Butter Sugar Toast", type: ItemType.toast, variants: []),
-            MenuItem(name: "Peanut Butter Toast", type: ItemType.toast, variants: [])
+            MenuItem(name: "Kaya Toast", type: .Toast, variants: []),
+            MenuItem(name: "Butter Sugar Toast", type: .Toast, variants: []),
+            MenuItem(name: "Peanut Butter Toast", type: .Toast, variants: [])
         ]
 
-        menuManager = MenuItemsManager(menuItems: drinks + toasts)
+        let dataSource = MenuDataSource(items: drinks + toasts)
+        menuManager = MenuItemsManager(dataSource: dataSource)
 
         locationLabel.text = "What would you like from \(location!)?"
     }
@@ -58,7 +59,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuManager.getMenuItemsFor(section: section).count
+        return menuManager.numberOfItems(section: section)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,7 +67,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return String(describing: menuManager.getItemType(section: section)).uppercased()
+        return menuManager.getMenuType(section: section).rawValue
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -10,8 +10,8 @@ func ==(lhs: MenuItem, rhs: MenuItem) -> Bool {
 
 }
 
-enum ItemType {
-    case drink, toast
+enum ItemType: String {
+    case Drink, Toast
 }
 
 struct MenuItem {
