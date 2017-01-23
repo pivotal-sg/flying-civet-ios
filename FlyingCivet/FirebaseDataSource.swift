@@ -21,5 +21,5 @@ class FirebaseDataSource {
             block(items)
         })
     }
-    
+
 }

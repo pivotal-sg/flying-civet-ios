@@ -12,9 +12,23 @@ class FirebaseDataSourceTest: XCTestCase {
 
         XCTAssertEqual(expectedMenuItems, actualMenuItems)
     }
-    
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    func testParseMenuItems_withVariants() {
+        let firebase = FirebaseDataSource()
+        let itemVariants = [
+            ItemVariant(name: "Normal", type: .Milk)
+        ]
+        let expectedMenuItems = [ MenuItem(name: "foo", type: .Drink, variants: itemVariants) ]
+
+        let firebaseItemVariants = [
+            [ "name": "Normal", "type": "Milk" ]
+        ]
+        let firebaseMenuItems = [
+            [ "name": "foo", "type": "Drink", "variants": firebaseItemVariants]
+        ]
+
+        let actualMenuItems = firebase.parseMenuItems(rawValue: firebaseMenuItems)
+
+        XCTAssertEqual(expectedMenuItems, actualMenuItems)
     }
 }

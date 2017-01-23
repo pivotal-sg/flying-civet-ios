@@ -35,11 +35,23 @@ struct MenuItem {
         self.variants = variants
     }
 
-    // TODO
     init(rawValue: Dictionary<String, Any>) {
         self.name = rawValue["name"]! as! String
         self.type = ItemType(rawValue: rawValue["type"]! as! String)!
-        self.variants = []
+
+        guard let variants = rawValue["variants"] else {
+            self.variants = []
+            return
+        }
+
+        self.variants = (variants as! NSArray)
+            .map { return $0 as! Dictionary<String, String> }
+            .map {
+                let itemVariantName = $0["name"]!
+                let itemVariantType = ItemVariantType(rawValue: $0["type"]!)!
+                return (itemVariantName, itemVariantType)
+            }
+            .map { return ItemVariant(name: $0, type: $1) }
     }
 }
 
