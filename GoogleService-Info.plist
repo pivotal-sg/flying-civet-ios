@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>830137995768-t9bdijujp5dsgm5sb0q7i7hkqf02nq18.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.830137995768-t9bdijujp5dsgm5sb0q7i7hkqf02nq18</string>
+	<key>API_KEY</key>
+	<string>AIzaSyByH7y4eufnpH9443W5pex2ZHwApsL7S60</string>
+	<key>GCM_SENDER_ID</key>
+	<string>830137995768</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>io.pivotal.singapore.FlyingToddycat</string>
+	<key>PROJECT_ID</key>
+	<string>kopi-run</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kopi-run.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:830137995768:ios:880858e8f8d39efa</string>
+	<key>DATABASE_URL</key>
+	<string>https://kopi-run.firebaseio.com</string>
+</dict>
+</plist>
