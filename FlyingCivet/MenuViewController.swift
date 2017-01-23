@@ -4,12 +4,14 @@ protocol MenuDelegate {
     func addToBasket(orderItem: OrderItem)
 }
 
+
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuDelegate {
 
     var location: String!
 
-    var menuManager: MenuItemsManager!
+    var menuManager = MenuItemsManager()
     var shoppingCart = ShoppingCartManager()
+    let firebaseDataSource = FirebaseDataSource()
 
     @IBOutlet weak var menuTable: UITableView!
     @IBOutlet weak var locationLabel: UILabel!
@@ -20,20 +22,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         menuTable.delegate = self
         menuTable.dataSource = self
 
-        let drinks = [
-            MenuItem(name: "Kopi (Coffee)", type: .Drink, variants: availableDrinkOptions()),
-            MenuItem(name: "Teh (Tea)", type: .Drink, variants: availableDrinkOptions()),
-            MenuItem(name: "Yuanyang (Half Coffee, Half Tea)", type: .Drink, variants: [])
-        ]
-
-        let toasts = [
-            MenuItem(name: "Kaya Toast", type: .Toast, variants: []),
-            MenuItem(name: "Butter Sugar Toast", type: .Toast, variants: []),
-            MenuItem(name: "Peanut Butter Toast", type: .Toast, variants: [])
-        ]
-
-        let dataSource = MenuDataSource(items: drinks + toasts)
-        menuManager = MenuItemsManager(dataSource: dataSource)
+        firebaseDataSource.getMenuItems {
+            self.menuManager = MenuItemsManager(items: $0)
+            self.menuTable.reloadData()
+        }
 
         locationLabel.text = "What would you like from \(location!)?"
     }

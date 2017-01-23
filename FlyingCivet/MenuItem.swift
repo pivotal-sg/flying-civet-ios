@@ -22,6 +22,25 @@ struct MenuItem {
     func hasVariants() -> Bool {
         return variants.count > 0
     }
+
+    init(name: String, type: ItemType) {
+        self.name = name
+        self.type = type
+        self.variants = [ItemVariant]()
+    }
+
+    init(name: String, type: ItemType, variants: [ItemVariant]) {
+        self.name = name
+        self.type = type
+        self.variants = variants
+    }
+
+    // TODO
+    init(rawValue: Dictionary<String, Any>) {
+        self.name = rawValue["name"]! as! String
+        self.type = ItemType(rawValue: rawValue["type"]! as! String)!
+        self.variants = []
+    }
 }
 
 

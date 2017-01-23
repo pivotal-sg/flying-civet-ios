@@ -1,16 +1,20 @@
 import Foundation
 
 class MenuItemsManager {
-    let items: [MenuItem]!
-    let itemTypes: [ItemType]!
+    var items: [MenuItem]
+    var itemTypes: [ItemType]
 
-    init(dataSource: MenuDataSource) {
-        self.items = dataSource.getMenuItems()
+    init(items: [MenuItem]) {
+        self.items = items
         self.itemTypes = items
             .map { $0.type }
             .reduce([]) { acc, itemType in
                 return acc.contains(itemType) ? acc : acc + [ itemType ]
         }
+    }
+
+    convenience init() {
+        self.init(items: [])
     }
 
     func getMenuItem(indexPath: IndexPath) -> MenuItem {
@@ -31,3 +35,4 @@ class MenuItemsManager {
         return itemTypes[section]
     }
 }
+

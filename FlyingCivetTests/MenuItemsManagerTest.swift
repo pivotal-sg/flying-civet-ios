@@ -8,9 +8,8 @@ class MenuItemsManagerTest: XCTestCase {
         let MENU_ITEMS = [
             fooMenuItem
         ]
-        let MENU_DATA_SOURCE = MenuDataSource(items: MENU_ITEMS)
 
-        let foo = MenuItemsManager(dataSource: MENU_DATA_SOURCE)
+        let foo = MenuItemsManager(items: MENU_ITEMS)
         let fooIndexPath = IndexPath(row: 0, section: 0)
 
         let actualFooMenuItem = foo.getMenuItem(indexPath: fooIndexPath)
@@ -23,9 +22,8 @@ class MenuItemsManagerTest: XCTestCase {
             fooMenuItem,
             makeMenuItem(name: "fake-kaya-toast", type: .Toast)
         ]
-        let MENU_DATA_SOURCE = MenuDataSource(items: MENU_ITEMS)
 
-        let foo = MenuItemsManager(dataSource: MENU_DATA_SOURCE)
+        let foo = MenuItemsManager(items: MENU_ITEMS)
 
         let actualMenuItems = foo.getMenuItems(type: .Drink)
         XCTAssertEqual([fooMenuItem], actualMenuItems)
@@ -38,8 +36,7 @@ class MenuItemsManagerTest: XCTestCase {
             makeMenuItem(name: "coffee", type: .Drink)
         ]
 
-        let MENU_DATA_SOURCE = MenuDataSource(items: MENU_ITEMS)
-        let foo = MenuItemsManager(dataSource: MENU_DATA_SOURCE)
+        let foo = MenuItemsManager(items: MENU_ITEMS)
 
         let actualNumberOfItems = foo.numberOfItems(section: 0)
         XCTAssertEqual(actualNumberOfItems, 2)
@@ -51,8 +48,7 @@ class MenuItemsManagerTest: XCTestCase {
             makeMenuItem(name: "coffee", type: .Drink)
         ]
 
-        let MENU_DATA_SOURCE = MenuDataSource(items: MENU_ITEMS)
-        let foo = MenuItemsManager(dataSource: MENU_DATA_SOURCE)
+        let foo = MenuItemsManager(items: MENU_ITEMS)
 
         let toastMenuType = foo.getMenuType(section: 0)
         XCTAssertEqual(.Toast, toastMenuType)
