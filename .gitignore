@@ -31,7 +31,6 @@ Temporary Items
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## Build generated
-build/
 DerivedData/
 
 ## Various settings
@@ -103,12 +102,6 @@ fabric.properties
 # .idea/misc.xml
 # *.ipr
 
-
-### Carthage ###
-# Carthage - A simple, decentralized dependency manager for Cocoa
-Carthage/Checkouts/
-Carthage/Build/
-
 # Fastlane
 test_output/
 
@@ -118,3 +111,6 @@ test_output/
 
 # Fastlane
 fastlane/report.xml
+
+# Carthage
+Carthage/Checkouts/
