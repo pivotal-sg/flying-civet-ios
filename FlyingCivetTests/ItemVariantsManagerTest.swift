@@ -5,6 +5,7 @@ class ItemVariantsManagerTest: XCTestCase {
     private func makeVariant(name: String, type: ItemVariantType) -> ItemVariant {
         return ItemVariant(
             name: name,
+            detailedName: name,
             type: type
         )
     }

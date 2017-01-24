@@ -25,7 +25,7 @@ class CustomizeItemViewController:  UIViewController, UITableViewDataSource, UIT
 
         let itemOption = itemsManager.getItemVariant(indexPath: indexPath)
 
-        cell.textLabel?.text = itemOption.name
+        cell.textLabel?.text = itemOption.detailedName
         cell.accessoryView = itemsManager.variantSelected(variant: itemOption) ? getCheckmarkView() : nil
 
         return cell

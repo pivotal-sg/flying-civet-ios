@@ -47,6 +47,7 @@ class ShoppingCartManagerTest: XCTestCase {
     private func makeMenuItem(name: String) -> MenuItem {
         return MenuItem(
             name: name,
+            detailedName: name,
             type: ItemType.Drink,
             variants: [/* Foo has no variants */])
     }
@@ -65,16 +66,22 @@ class ShoppingCartManagerTest: XCTestCase {
         XCTAssert(manager.count() == 6)
     }
 
-    func testGetOrderedItems() {
-        let manager = ShoppingCartManager()
+}
 
-        let fooMenuItem = makeMenuItem(name: "Foo")
-        let fooOrderItem = OrderItem(item: fooMenuItem,
-                                     variants: [/* No variants*/],
-                                     quantity: 3)
-        
-        manager.addToCart(item: fooOrderItem)
+class OrderPresenterTest: XCTestCase {
+    func testPresenter() {
+        let coffee = MenuItem(name: "Kopi", detailedName: "Kopi (Coffee)", type: .Drink, variants: [])
+        let variants = [
+            ItemVariant(name: "C", detailedName: "C (Evaporated)", type: .Milk),
+            ItemVariant(name: "Kosong", detailedName: "Kosong (Unsweetened)", type: .Sweetness)
+        ]
 
-        XCTAssertEqual(manager.getOrderedItems(), [fooOrderItem])
+        let kopiKosong = OrderItem(item: coffee, variants: variants, quantity: 3)
+
+        let presenter = OrderPresenter(item: kopiKosong)
+
+        XCTAssertEqual("C Kosong", presenter.subtitle)
+        XCTAssertEqual("Kopi", presenter.name)
+        XCTAssertEqual("3", presenter.quantity)
     }
 }

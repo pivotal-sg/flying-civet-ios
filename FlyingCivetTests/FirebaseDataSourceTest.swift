@@ -5,7 +5,7 @@ class FirebaseDataSourceTest: XCTestCase {
         let firebase = FirebaseDataSource()
         let expectedMenuItems = [ MenuItem(name: "foo", type: .Drink) ]
         let firebaseMenuItems = [
-            [ "name": "foo", "type": "Drink" ]
+            [ "name": "foo", "detailed_name": "Normal", "type": "Drink" ]
         ]
 
         let actualMenuItems = firebase.parseMenuItems(rawValue: firebaseMenuItems)
@@ -16,15 +16,22 @@ class FirebaseDataSourceTest: XCTestCase {
     func testParseMenuItems_withVariants() {
         let firebase = FirebaseDataSource()
         let itemVariants = [
-            ItemVariant(name: "Normal", type: .Milk)
+            ItemVariant(name: "Normal",
+                        detailedName: "Normal",
+                        type: .Milk)
         ]
-        let expectedMenuItems = [ MenuItem(name: "foo", type: .Drink, variants: itemVariants) ]
+        let expectedMenuItems = [ MenuItem(name: "foo", detailedName: "foo",  type: .Drink, variants: itemVariants) ]
 
         let firebaseItemVariants = [
-            [ "name": "Normal", "type": "Milk" ]
+            [ "name": "Normal",
+              "detailed_name": "Normal",
+              "type": "Milk" ]
         ]
         let firebaseMenuItems = [
-            [ "name": "foo", "type": "Drink", "variants": firebaseItemVariants]
+            [ "name": "foo",
+              "detailed_name": "Normal",
+              "type": "Drink",
+              "variants": firebaseItemVariants]
         ]
 
         let actualMenuItems = firebase.parseMenuItems(rawValue: firebaseMenuItems)

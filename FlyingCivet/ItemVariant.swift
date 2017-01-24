@@ -14,5 +14,6 @@ enum ItemVariantType: String {
 
 struct ItemVariant {
     var name: String
+    var detailedName: String
     var type: ItemVariantType
 }

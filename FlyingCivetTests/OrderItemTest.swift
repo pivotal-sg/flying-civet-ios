@@ -45,13 +45,13 @@ class OrderItemTest: XCTestCase {
     }
 
     private func buildMenuItem() -> MenuItem {
-        return MenuItem(name: "foo", type: ItemType.Drink, variants: buildVariants())
+        return MenuItem(name: "foo", detailedName: "foo",  type: ItemType.Drink, variants: buildVariants())
     }
 
     private func buildVariants() -> [ItemVariant] {
         let variants = [
-            ItemVariant(name: "foo", type: ItemVariantType.Milk),
-            ItemVariant(name: "bar", type: ItemVariantType.Temperature),
+            ItemVariant(name: "foo", detailedName: "foo",  type: ItemVariantType.Milk),
+            ItemVariant(name: "bar", detailedName: "bar",  type: ItemVariantType.Temperature),
             ]
         return variants
     }

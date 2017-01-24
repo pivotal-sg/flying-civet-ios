@@ -18,10 +18,6 @@ class ShoppingCartManager {
             .reduce(0) { $0 + $1.quantity }
     }
 
-    func getOrderedItems() -> [OrderItem] {
-        return items
-    }
-
     func count() -> Int {
         return items.reduce(0) { $0 + $1.quantity }
     }

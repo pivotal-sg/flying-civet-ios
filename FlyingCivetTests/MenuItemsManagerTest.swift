@@ -1,7 +1,7 @@
 import XCTest
 
 class MenuItemsManagerTest: XCTestCase {
-    let DEFAULT_MILK_VARIANT = ItemVariant(name: "fake-item-variant", type: .Milk)
+    let DEFAULT_MILK_VARIANT = ItemVariant(name: "fake-item-variant", detailedName: "fake-item-variant", type: .Milk)
 
     func testGetMenuItem() {
         let fooMenuItem = makeMenuItem(name: "foo", type: .Drink)
@@ -57,6 +57,6 @@ class MenuItemsManagerTest: XCTestCase {
     }
 
     private func makeMenuItem(name: String, type: ItemType) -> MenuItem {
-        return MenuItem(name: name, type: type, variants: [DEFAULT_MILK_VARIANT])
+        return MenuItem(name: name, detailedName: name, type: type, variants: [DEFAULT_MILK_VARIANT])
     }
 }

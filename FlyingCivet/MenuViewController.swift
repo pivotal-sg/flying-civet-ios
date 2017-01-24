@@ -4,6 +4,17 @@ protocol MenuDelegate {
     func addToBasket(orderItem: OrderItem)
 }
 
+class OrderPresenter {
+    let subtitle: String
+    let name: String
+    let quantity: String
+
+    init(item: OrderItem) {
+        self.subtitle = item.variants.map { $0.name }.joined(separator: " ")
+        self.name = item.item.name
+        self.quantity = item.quantity.description
+    }
+}
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuDelegate {
 
@@ -40,11 +51,13 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
-        let currentMenuItem = getMenuItem(indexPath: indexPath)
+
+        let newIndexPath = IndexPath(row: indexPath.row, section: indexPath.section)
+        let currentMenuItem = getMenuItem(indexPath: newIndexPath)
 
         let count = shoppingCart.count(of: currentMenuItem)
         cell.textLabel?.text = count > 0 ? "\(count)x" : ""
-        cell.detailTextLabel?.text = currentMenuItem.name
+        cell.detailTextLabel?.text = currentMenuItem.detailedName
 
         return cell
     }
@@ -100,40 +113,12 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         basketLabel.text = "\(basketCount)"
     }
 
-    private func availableDrinkOptions() -> [ItemVariant] {
-        let MilkItemVariants = [
-            ItemVariant(name: "Normal", type: ItemVariantType.Milk),
-            ItemVariant(name: "C (Evaporated)", type: ItemVariantType.Milk),
-            ItemVariant(name: "O (Black)", type: ItemVariantType.Milk)
-        ]
-
-        let StrengthItemVariants = [
-            ItemVariant(name: "Normal", type: ItemVariantType.Strength),
-            ItemVariant(name: "Gau (Extra Strong)", type: ItemVariantType.Strength),
-            ItemVariant(name: "Poh (Less Strong)", type: ItemVariantType.Strength)
-        ]
-
-        let SweetnessItemVariants = [
-            ItemVariant(name: "Normal", type: ItemVariantType.Sweetness),
-            ItemVariant(name: "Gah Dai (Extra Sweet)", type: ItemVariantType.Sweetness),
-            ItemVariant(name: "Siew Dai (Less Sweet)", type: ItemVariantType.Sweetness),
-            ItemVariant(name: "Kosong (Unsweetened)", type: ItemVariantType.Sweetness)
-        ]
-
-        let TemperatureItemVariants = [
-            ItemVariant(name: "Hot", type: ItemVariantType.Temperature),
-            ItemVariant(name: "Peng (Iced)", type: ItemVariantType.Temperature)
-        ]
-
-        return MilkItemVariants + StrengthItemVariants + SweetnessItemVariants + TemperatureItemVariants
-    }
-
     private func defaultDrinkOptions() -> [ItemVariant] {
         return [
-            ItemVariant(name: "Normal", type: ItemVariantType.Milk),
-            ItemVariant(name: "Normal", type: ItemVariantType.Strength),
-            ItemVariant(name: "Normal", type: ItemVariantType.Sweetness),
-            ItemVariant(name: "Hot", type: ItemVariantType.Temperature),
+            ItemVariant(name: "Normal", detailedName: "Normal", type: ItemVariantType.Milk),
+            ItemVariant(name: "Normal", detailedName: "Normal", type: ItemVariantType.Strength),
+            ItemVariant(name: "Normal", detailedName: "Normal", type: ItemVariantType.Sweetness),
+            ItemVariant(name: "Hot", detailedName: "Hot", type: ItemVariantType.Temperature),
         ]
     }
 

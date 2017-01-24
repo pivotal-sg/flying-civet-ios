@@ -16,6 +16,7 @@ enum ItemType: String {
 
 struct MenuItem {
     var name: String
+    var detailedName: String
     var type: ItemType
     var variants: [ItemVariant]
 
@@ -25,18 +26,21 @@ struct MenuItem {
 
     init(name: String, type: ItemType) {
         self.name = name
+        self.detailedName = name
         self.type = type
         self.variants = [ItemVariant]()
     }
 
-    init(name: String, type: ItemType, variants: [ItemVariant]) {
+    init(name: String, detailedName: String, type: ItemType, variants: [ItemVariant]) {
         self.name = name
+        self.detailedName = detailedName
         self.type = type
         self.variants = variants
     }
 
     init(rawValue: Dictionary<String, Any>) {
         self.name = rawValue["name"]! as! String
+        self.detailedName = rawValue["detailed_name"]! as! String
         self.type = ItemType(rawValue: rawValue["type"]! as! String)!
 
         guard let variants = rawValue["variants"] else {
@@ -48,10 +52,11 @@ struct MenuItem {
             .map { return $0 as! Dictionary<String, String> }
             .map {
                 let itemVariantName = $0["name"]!
+                let itemVariantDetailedName = $0["detailed_name"]!
                 let itemVariantType = ItemVariantType(rawValue: $0["type"]!)!
-                return (itemVariantName, itemVariantType)
+                return (itemVariantName, itemVariantDetailedName, itemVariantType)
             }
-            .map { return ItemVariant(name: $0, type: $1) }
+            .map { return ItemVariant(name: $0, detailedName: $1, type: $2) }
     }
 }
 
