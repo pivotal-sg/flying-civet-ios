@@ -13,4 +13,16 @@ struct OrderItem {
     var item: MenuItem
     var variants: [ItemVariant]
     var quantity: Int
+
+    init(item: MenuItem) {
+        self.item = item
+        self.variants = []
+        self.quantity = 1
+    }
+
+    init(item: MenuItem, variants: [ItemVariant], quantity: Int) {
+        self.item = item
+        self.variants = variants
+        self.quantity = quantity
+    }
 }

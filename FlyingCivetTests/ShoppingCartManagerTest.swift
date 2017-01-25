@@ -68,20 +68,3 @@ class ShoppingCartManagerTest: XCTestCase {
 
 }
 
-class OrderPresenterTest: XCTestCase {
-    func testPresenter() {
-        let coffee = MenuItem(name: "Kopi", detailedName: "Kopi (Coffee)", type: .Drink, variants: [])
-        let variants = [
-            ItemVariant(name: "C", detailedName: "C (Evaporated)", type: .Milk),
-            ItemVariant(name: "Kosong", detailedName: "Kosong (Unsweetened)", type: .Sweetness)
-        ]
-
-        let kopiKosong = OrderItem(item: coffee, variants: variants, quantity: 3)
-
-        let presenter = OrderPresenter(item: kopiKosong)
-
-        XCTAssertEqual("C Kosong", presenter.subtitle)
-        XCTAssertEqual("Kopi", presenter.name)
-        XCTAssertEqual("3", presenter.quantity)
-    }
-}
