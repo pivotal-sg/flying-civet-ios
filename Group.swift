@@ -1,6 +1,7 @@
 import Foundation
+import UIKit
 
-typealias MENU_ITEM_CALLBACK = (MenuItem) -> ()
+typealias ITEM_CALLBACK = (AnyObject) -> ()
 
 protocol Group {
     var name: String { get }
@@ -9,5 +10,7 @@ protocol Group {
 
     func getItem(row: Int) -> Presenter
 
-    func didSelectRowAt(indexPath: IndexPath, callback: MENU_ITEM_CALLBACK)
+    func didSelectRowAt(indexPath: IndexPath, callback: ITEM_CALLBACK)
+
+    func cellForRowAt(tableView: UITableView, indexPath: IndexPath, quantity: Int) -> UITableViewCell
 }

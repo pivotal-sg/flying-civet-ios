@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 class MenuGroup: Group {
     var name: String
@@ -16,8 +17,17 @@ class MenuGroup: Group {
         return Presenter(item: items[row])
     }
 
-    func didSelectRowAt(indexPath: IndexPath, callback: MENU_ITEM_CALLBACK) {
+    func didSelectRowAt(indexPath: IndexPath, callback: ITEM_CALLBACK) {
         let item = items[indexPath.row]
-        callback(item)
+        callback(item as AnyObject)
+    }
+
+    func cellForRowAt(tableView: UITableView, indexPath: IndexPath, quantity: Int) -> UITableViewCell {
+        let item = getItem(row: indexPath.row)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuCell
+
+        cell.quantityLabel.text = quantity > 0 ? "\(quantity)x" : ""
+        cell.nameLabel.text = item.name
+        return cell
     }
 }

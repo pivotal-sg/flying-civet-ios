@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 class OrderGroup: Group {
     var name: String
@@ -21,7 +22,17 @@ class OrderGroup: Group {
         return Presenter(item: items[row])
     }
 
-    func didSelectRowAt(indexPath: IndexPath, callback: MENU_ITEM_CALLBACK) {
+    func didSelectRowAt(indexPath: IndexPath, callback: ITEM_CALLBACK) {
         // no op
+    }
+
+    func cellForRowAt(tableView: UITableView, indexPath: IndexPath, quantity: Int) -> UITableViewCell {
+        let item = getItem(row: indexPath.row)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath) as! OrderCell
+        
+        cell.quantityLabel.text = "\(item.quantity!)x"
+        cell.nameLabel.text = item.name
+        cell.subtitleLabel.text = item.subtitle
+        return cell
     }
 }

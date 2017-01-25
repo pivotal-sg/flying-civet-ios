@@ -64,10 +64,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         adapter.didSelectRowAt(indexPath: indexPath) { item in
-            if item.hasVariants() {
+            let menuItem = item as! MenuItem
+            if menuItem.hasVariants() {
                 self.performSegue(withIdentifier: "showCustomizeItemScreen", sender: view)
             } else {
-                adapter.add(order: OrderItem(item: item))
+                adapter.add(order: OrderItem(item: menuItem))
             }
         }
         tableView.reloadData()

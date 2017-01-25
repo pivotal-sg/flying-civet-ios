@@ -39,25 +39,13 @@ class MenuControllerAdapter {
     }
 
     func cellForRowAt(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let foo = getItem(indexPath: indexPath)
+        let item = getItem(indexPath: indexPath)
+        let quantity = orders.filter{ $0.variants.count == 0 && $0.item.detailedName == item.name }.count
 
-        if (foo.subtitle == nil) {
-            let quantity = orders.filter{ $0.variants.count == 0 && $0.item.detailedName == foo.name }.count
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuCell
-
-            cell.quantityLabel.text = quantity > 0 ? "\(quantity)x" : ""
-            cell.nameLabel.text = foo.name
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath) as! OrderCell
-            cell.quantityLabel.text = "\(foo.quantity!)x"
-            cell.nameLabel.text = foo.name
-            cell.subtitleLabel.text = foo.subtitle
-            return cell
-        }
+        return groups[indexPath.section].cellForRowAt(tableView: tableView, indexPath: indexPath, quantity: quantity)
     }
 
-    func didSelectRowAt(indexPath: IndexPath, callback: MENU_ITEM_CALLBACK) {
+    func didSelectRowAt(indexPath: IndexPath, callback: ITEM_CALLBACK) {
         groups[indexPath.section]
             .didSelectRowAt(indexPath: indexPath) {
                 callback($0)
