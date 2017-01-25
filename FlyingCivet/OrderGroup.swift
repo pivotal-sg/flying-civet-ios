@@ -28,7 +28,7 @@ class OrderGroup: Group {
 
     func cellForRowAt(tableView: UITableView, indexPath: IndexPath, quantity: Int) -> UITableViewCell {
         let item = getItem(row: indexPath.row)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath) as! OrderCell
+        let cell = Bundle.main.loadNibNamed("OrderCell", owner: tableView, options: nil)?.first as! OrderCell
         
         cell.quantityLabel.text = "\(item.quantity!)x"
         cell.nameLabel.text = item.name

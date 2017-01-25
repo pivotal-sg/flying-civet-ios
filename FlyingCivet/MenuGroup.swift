@@ -24,7 +24,7 @@ class MenuGroup: Group {
 
     func cellForRowAt(tableView: UITableView, indexPath: IndexPath, quantity: Int) -> UITableViewCell {
         let item = getItem(row: indexPath.row)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuCell
+        let cell = Bundle.main.loadNibNamed("MenuCell", owner: tableView, options: nil)?.first as! MenuCell
 
         cell.quantityLabel.text = quantity > 0 ? "\(quantity)x" : ""
         cell.nameLabel.text = item.name

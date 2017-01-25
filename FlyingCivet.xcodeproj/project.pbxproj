@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		AE02773B1E35FF8A005EFFE7 /* FirebaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02773A1E35FF8A005EFFE7 /* FirebaseDataSource.swift */; };
 		AE02773C1E35FF8A005EFFE7 /* FirebaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02773A1E35FF8A005EFFE7 /* FirebaseDataSource.swift */; };
-		AE0277501E385FCD005EFFE7 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02774F1E385FCD005EFFE7 /* OrderCell.swift */; };
-		AE0277511E385FCD005EFFE7 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02774F1E385FCD005EFFE7 /* OrderCell.swift */; };
-		AE0277541E3878DF005EFFE7 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0277531E3878DF005EFFE7 /* MenuCell.swift */; };
-		AE0277551E3878DF005EFFE7 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0277531E3878DF005EFFE7 /* MenuCell.swift */; };
 		AE0277571E387A54005EFFE7 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0277561E387A54005EFFE7 /* Presenter.swift */; };
 		AE0277581E387A54005EFFE7 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0277561E387A54005EFFE7 /* Presenter.swift */; };
 		AE02775A1E387A84005EFFE7 /* MenuControllerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0277591E387A84005EFFE7 /* MenuControllerAdapter.swift */; };
@@ -23,6 +19,12 @@
 		AE0277611E387B85005EFFE7 /* MenuGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02775F1E387B85005EFFE7 /* MenuGroup.swift */; };
 		AE0277641E387BB9005EFFE7 /* OrderGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0277631E387BB9005EFFE7 /* OrderGroup.swift */; };
 		AE0277651E387BB9005EFFE7 /* OrderGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0277631E387BB9005EFFE7 /* OrderGroup.swift */; };
+		AE02776C1E389AB9005EFFE7 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02776A1E389AB9005EFFE7 /* OrderCell.swift */; };
+		AE02776D1E389AB9005EFFE7 /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE02776B1E389AB9005EFFE7 /* OrderCell.xib */; };
+		AE0277701E389D00005EFFE7 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02776E1E389D00005EFFE7 /* MenuCell.swift */; };
+		AE0277711E389D00005EFFE7 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE02776F1E389D00005EFFE7 /* MenuCell.xib */; };
+		AE9326401E389E610020A609 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02776A1E389AB9005EFFE7 /* OrderCell.swift */; };
+		AE9326411E389E680020A609 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02776E1E389D00005EFFE7 /* MenuCell.swift */; };
 		AE9ABB3F1E24C1D0007CFF5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9ABB3E1E24C1D0007CFF5C /* AppDelegate.swift */; };
 		AE9ABB411E24C1D0007CFF5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9ABB401E24C1D0007CFF5C /* ViewController.swift */; };
 		AE9ABB441E24C1D0007CFF5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9ABB421E24C1D0007CFF5C /* Main.storyboard */; };
@@ -109,13 +111,15 @@
 
 /* Begin PBXFileReference section */
 		AE02773A1E35FF8A005EFFE7 /* FirebaseDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataSource.swift; sourceTree = "<group>"; };
-		AE02774F1E385FCD005EFFE7 /* OrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
-		AE0277531E3878DF005EFFE7 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		AE0277561E387A54005EFFE7 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Presenter.swift; path = ../Presenter.swift; sourceTree = "<group>"; };
 		AE0277591E387A84005EFFE7 /* MenuControllerAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuControllerAdapter.swift; path = ../MenuControllerAdapter.swift; sourceTree = "<group>"; };
 		AE02775C1E387B28005EFFE7 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Group.swift; path = ../Group.swift; sourceTree = "<group>"; };
 		AE02775F1E387B85005EFFE7 /* MenuGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuGroup.swift; sourceTree = "<group>"; };
 		AE0277631E387BB9005EFFE7 /* OrderGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderGroup.swift; sourceTree = "<group>"; };
+		AE02776A1E389AB9005EFFE7 /* OrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
+		AE02776B1E389AB9005EFFE7 /* OrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
+		AE02776E1E389D00005EFFE7 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		AE02776F1E389D00005EFFE7 /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		AE9ABB3B1E24C1D0007CFF5C /* FlyingCivet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyingCivet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9ABB3E1E24C1D0007CFF5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE9ABB401E24C1D0007CFF5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -210,8 +214,10 @@
 		AE0277521E385FD1005EFFE7 /* cells */ = {
 			isa = PBXGroup;
 			children = (
-				AE02774F1E385FCD005EFFE7 /* OrderCell.swift */,
-				AE0277531E3878DF005EFFE7 /* MenuCell.swift */,
+				AE02776A1E389AB9005EFFE7 /* OrderCell.swift */,
+				AE02776B1E389AB9005EFFE7 /* OrderCell.xib */,
+				AE02776E1E389D00005EFFE7 /* MenuCell.swift */,
+				AE02776F1E389D00005EFFE7 /* MenuCell.xib */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -446,6 +452,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0277711E389D00005EFFE7 /* MenuCell.xib in Resources */,
+				AE02776D1E389AB9005EFFE7 /* OrderCell.xib in Resources */,
 				AE9ABB491E24C1D0007CFF5C /* LaunchScreen.storyboard in Resources */,
 				AEC7E4121E35A2FA0034F64F /* GoogleService-Info.plist in Resources */,
 				AE9ABB461E24C1D0007CFF5C /* Assets.xcassets in Resources */,
@@ -478,7 +486,6 @@
 				AE02773B1E35FF8A005EFFE7 /* FirebaseDataSource.swift in Sources */,
 				AEBC273D1E2DAE6E00B9836E /* LocationViewController.swift in Sources */,
 				AE0277571E387A54005EFFE7 /* Presenter.swift in Sources */,
-				AE0277501E385FCD005EFFE7 /* OrderCell.swift in Sources */,
 				AEBC27431E2E171200B9836E /* MenuViewController.swift in Sources */,
 				AE9ABB411E24C1D0007CFF5C /* ViewController.swift in Sources */,
 				AEC7E3E71E31C91B0034F64F /* MenuItemsManager.swift in Sources */,
@@ -489,8 +496,9 @@
 				AE02775A1E387A84005EFFE7 /* MenuControllerAdapter.swift in Sources */,
 				AED2150B1E2F71E1000AB6F8 /* OrderItem.swift in Sources */,
 				AED2150E1E2F7202000AB6F8 /* MenuItem.swift in Sources */,
-				AE0277541E3878DF005EFFE7 /* MenuCell.swift in Sources */,
+				AE0277701E389D00005EFFE7 /* MenuCell.swift in Sources */,
 				AED215191E30B1D5000AB6F8 /* ShoppingCartManager.swift in Sources */,
+				AE02776C1E389AB9005EFFE7 /* OrderCell.swift in Sources */,
 				AE0277641E387BB9005EFFE7 /* OrderGroup.swift in Sources */,
 				AED215071E2F5A8B000AB6F8 /* ItemVariantsManager.swift in Sources */,
 				AE0277601E387B85005EFFE7 /* MenuGroup.swift in Sources */,
@@ -505,7 +513,6 @@
 				AEC7E3EE1E3200190034F64F /* MenuItemsManagerTest.swift in Sources */,
 				AEC7E3E21E31AB620034F64F /* ItemVariant.swift in Sources */,
 				AE0277651E387BB9005EFFE7 /* OrderGroup.swift in Sources */,
-				AE0277511E385FCD005EFFE7 /* OrderCell.swift in Sources */,
 				AE02775E1E387B28005EFFE7 /* Group.swift in Sources */,
 				AE0277611E387B85005EFFE7 /* MenuGroup.swift in Sources */,
 				AEC7E4151E35EC880034F64F /* FirebaseDataSourceTest.swift in Sources */,
@@ -515,18 +522,19 @@
 				AEC7E3DD1E31AB370034F64F /* OrderItemTest.swift in Sources */,
 				AEBC273E1E2DAE6E00B9836E /* LocationViewController.swift in Sources */,
 				AEC7E3DB1E31AB2C0034F64F /* ItemVariantTest.swift in Sources */,
+				AE9326401E389E610020A609 /* OrderCell.swift in Sources */,
 				AEC7E3D91E31AB1C0034F64F /* MenuItemTest.swift in Sources */,
 				AEBC27471E2F08C100B9836E /* CustomizeItemViewController.swift in Sources */,
 				AE0277581E387A54005EFFE7 /* Presenter.swift in Sources */,
 				AE02773C1E35FF8A005EFFE7 /* FirebaseDataSource.swift in Sources */,
 				AED215051E2F437D000AB6F8 /* ItemVariantsManagerTest.swift in Sources */,
-				AE0277551E3878DF005EFFE7 /* MenuCell.swift in Sources */,
 				AEBC27441E2E171200B9836E /* MenuViewController.swift in Sources */,
 				AED2150C1E2F71E1000AB6F8 /* OrderItem.swift in Sources */,
 				AE02775B1E387A84005EFFE7 /* MenuControllerAdapter.swift in Sources */,
 				AED215171E30AAC8000AB6F8 /* ShoppingCartManagerTest.swift in Sources */,
 				AED2150F1E2F7202000AB6F8 /* MenuItem.swift in Sources */,
 				AED215081E2F5A8B000AB6F8 /* ItemVariantsManager.swift in Sources */,
+				AE9326411E389E680020A609 /* MenuCell.swift in Sources */,
 				AED2151A1E30B1D5000AB6F8 /* ShoppingCartManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
