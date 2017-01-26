@@ -25,6 +25,12 @@
 		AE0277711E389D00005EFFE7 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE02776F1E389D00005EFFE7 /* MenuCell.xib */; };
 		AE9326401E389E610020A609 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02776A1E389AB9005EFFE7 /* OrderCell.swift */; };
 		AE9326411E389E680020A609 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02776E1E389D00005EFFE7 /* MenuCell.swift */; };
+		AE9326431E38A05A0020A609 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9326421E38A05A0020A609 /* BasketViewController.swift */; };
+		AE9326441E38A05A0020A609 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9326421E38A05A0020A609 /* BasketViewController.swift */; };
+		AE9326471E398E650020A609 /* Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9326461E398E650020A609 /* Dollar.framework */; };
+		AE9326481E398E650020A609 /* Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9326461E398E650020A609 /* Dollar.framework */; };
+		AE9326491E398E8D0020A609 /* Dollar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9326461E398E650020A609 /* Dollar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE93264B1E3994070020A609 /* MenuControllerAdapterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93264A1E3994070020A609 /* MenuControllerAdapterTest.swift */; };
 		AE9ABB3F1E24C1D0007CFF5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9ABB3E1E24C1D0007CFF5C /* AppDelegate.swift */; };
 		AE9ABB411E24C1D0007CFF5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9ABB401E24C1D0007CFF5C /* ViewController.swift */; };
 		AE9ABB441E24C1D0007CFF5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9ABB421E24C1D0007CFF5C /* Main.storyboard */; };
@@ -103,6 +109,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				AEC7E3FA1E359DEA0034F64F /* Firebase.framework in Embed Frameworks */,
+				AE9326491E398E8D0020A609 /* Dollar.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +127,9 @@
 		AE02776B1E389AB9005EFFE7 /* OrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
 		AE02776E1E389D00005EFFE7 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		AE02776F1E389D00005EFFE7 /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		AE9326421E38A05A0020A609 /* BasketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		AE9326461E398E650020A609 /* Dollar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dollar.framework; path = Carthage/Build/iOS/Dollar.framework; sourceTree = "<group>"; };
+		AE93264A1E3994070020A609 /* MenuControllerAdapterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuControllerAdapterTest.swift; sourceTree = "<group>"; };
 		AE9ABB3B1E24C1D0007CFF5C /* FlyingCivet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyingCivet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9ABB3E1E24C1D0007CFF5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE9ABB401E24C1D0007CFF5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +177,7 @@
 			files = (
 				AEC7E40A1E35A2050034F64F /* GoogleSymbolUtilities.framework in Frameworks */,
 				AEC7E4041E35A2050034F64F /* FirebaseDatabase.framework in Frameworks */,
+				AE9326471E398E650020A609 /* Dollar.framework in Frameworks */,
 				AEC7E4021E35A2050034F64F /* FirebaseAnalytics.framework in Frameworks */,
 				AEC7E3F71E359BEE0034F64F /* Firebase.framework in Frameworks */,
 				AEC7E4061E35A2050034F64F /* FirebaseInstanceID.framework in Frameworks */,
@@ -181,6 +192,7 @@
 			files = (
 				AEC7E40B1E35A2050034F64F /* GoogleSymbolUtilities.framework in Frameworks */,
 				AEC7E4051E35A2050034F64F /* FirebaseDatabase.framework in Frameworks */,
+				AE9326481E398E650020A609 /* Dollar.framework in Frameworks */,
 				AEC7E4031E35A2050034F64F /* FirebaseAnalytics.framework in Frameworks */,
 				AEC7E3F81E359BEE0034F64F /* Firebase.framework in Frameworks */,
 				AEC7E4071E35A2050034F64F /* FirebaseInstanceID.framework in Frameworks */,
@@ -207,6 +219,7 @@
 				AEBC27421E2E171200B9836E /* MenuViewController.swift */,
 				AEBC273F1E2DEEBE00B9836E /* RunViewController.swift */,
 				AE9ABB401E24C1D0007CFF5C /* ViewController.swift */,
+				AE9326421E38A05A0020A609 /* BasketViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -235,6 +248,7 @@
 		AE9ABB321E24C1D0007CFF5C = {
 			isa = PBXGroup;
 			children = (
+				AE9326461E398E650020A609 /* Dollar.framework */,
 				AEC7E3F61E359BEE0034F64F /* Firebase.framework */,
 				AEC7E3FC1E35A2050034F64F /* FirebaseAnalytics.framework */,
 				AEC7E3FD1E35A2050034F64F /* FirebaseDatabase.framework */,
@@ -263,19 +277,19 @@
 		AE9ABB3D1E24C1D0007CFF5C /* FlyingCivet */ = {
 			isa = PBXGroup;
 			children = (
-				AE0277621E387BAC005EFFE7 /* groups */,
-				AE0277591E387A84005EFFE7 /* MenuControllerAdapter.swift */,
-				AE0277561E387A54005EFFE7 /* Presenter.swift */,
-				AE9ABB4A1E24C1D0007CFF5C /* Info.plist */,
 				AE9ABB3E1E24C1D0007CFF5C /* AppDelegate.swift */,
-				AE02773D1E35FFBA005EFFE7 /* controllers */,
 				AE9ABB451E24C1D0007CFF5C /* Assets.xcassets */,
+				AE0277521E385FD1005EFFE7 /* cells */,
+				AE02773D1E35FFBA005EFFE7 /* controllers */,
+				AE02773A1E35FF8A005EFFE7 /* FirebaseDataSource.swift */,
+				AE0277621E387BAC005EFFE7 /* groups */,
+				AE9ABB4A1E24C1D0007CFF5C /* Info.plist */,
 				AE9ABB471E24C1D0007CFF5C /* LaunchScreen.storyboard */,
 				AE9ABB421E24C1D0007CFF5C /* Main.storyboard */,
-				AE0277521E385FD1005EFFE7 /* cells */,
 				AED215091E2F5A9B000AB6F8 /* managers */,
+				AE0277591E387A84005EFFE7 /* MenuControllerAdapter.swift */,
 				AEC125AB1E2F39A4008F69FE /* models */,
-				AE02773A1E35FF8A005EFFE7 /* FirebaseDataSource.swift */,
+				AE0277561E387A54005EFFE7 /* Presenter.swift */,
 			);
 			path = FlyingCivet;
 			sourceTree = "<group>";
@@ -288,6 +302,7 @@
 				AE9ABB551E24C1D0007CFF5C /* Info.plist */,
 				AEC7E3E91E31E15B0034F64F /* managers */,
 				AEC7E3EA1E31E1710034F64F /* models */,
+				AE93264A1E3994070020A609 /* MenuControllerAdapterTest.swift */,
 			);
 			path = FlyingCivetTests;
 			sourceTree = "<group>";
@@ -492,6 +507,7 @@
 				AEC7E3E11E31AB620034F64F /* ItemVariant.swift in Sources */,
 				AEBC27401E2DEEBE00B9836E /* RunViewController.swift in Sources */,
 				AE02775D1E387B28005EFFE7 /* Group.swift in Sources */,
+				AE9326431E38A05A0020A609 /* BasketViewController.swift in Sources */,
 				AE9ABB3F1E24C1D0007CFF5C /* AppDelegate.swift in Sources */,
 				AE02775A1E387A84005EFFE7 /* MenuControllerAdapter.swift in Sources */,
 				AED2150B1E2F71E1000AB6F8 /* OrderItem.swift in Sources */,
@@ -510,6 +526,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE93264B1E3994070020A609 /* MenuControllerAdapterTest.swift in Sources */,
+				AE9326441E38A05A0020A609 /* BasketViewController.swift in Sources */,
 				AEC7E3EE1E3200190034F64F /* MenuItemsManagerTest.swift in Sources */,
 				AEC7E3E21E31AB620034F64F /* ItemVariant.swift in Sources */,
 				AE0277651E387BB9005EFFE7 /* OrderGroup.swift in Sources */,

@@ -25,4 +25,15 @@ struct OrderItem {
         self.variants = variants
         self.quantity = quantity
     }
+
+    func hasVariants() -> Bool {
+        return variants.count > 0
+    }
+
+    func merge(with other: OrderItem) -> OrderItem {
+        return OrderItem(
+            item: other.item,
+            variants: other.variants,
+            quantity: quantity + other.quantity)
+    }
 }

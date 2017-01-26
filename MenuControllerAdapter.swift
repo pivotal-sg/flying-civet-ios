@@ -1,20 +1,40 @@
 import Foundation
+import Dollar
 import UIKit
 
 class MenuControllerAdapter {
     var groups = [Group]()
     var orders = [OrderItem]()
 
+    let RECENT_ORDERS_GROUP: OrderGroup!
+
+    init() {
+        RECENT_ORDERS_GROUP = OrderGroup(name: "Recent Orders", items: [])
+        add(group: RECENT_ORDERS_GROUP)
+    }
+
     func add(group: Group) {
         groups.append(group)
     }
 
     func add(order: OrderItem) {
-        orders.append(order)
-        if (order.variants.count != 0) {
-            let orderGroup = groups.filter{ type(of: $0) == OrderGroup.self }.first as! OrderGroup
-            orderGroup.addOrder(order: order)
+        let EXISTING_ORDER = $.find(orders) {
+            $0.item == order.item && $0.variants == order.variants
         }
+
+        if let EXISTING_ORDER = EXISTING_ORDER {
+            let EXISTING_ORDER_INDEX = orders.index(of: EXISTING_ORDER)!
+            orders[EXISTING_ORDER_INDEX] = order.merge(with: EXISTING_ORDER)
+        } else {
+            orders.append(order)
+        }
+
+        RECENT_ORDERS_GROUP.items = orders.filter { $0.hasVariants() }
+    }
+
+    func add(name: ItemType, items: [MenuItem]) {
+        let group = MenuGroup(name: name.rawValue, items: items)
+        add(group: group)
     }
 
     func numberOfItems(section: Int) -> Int {
@@ -34,15 +54,14 @@ class MenuControllerAdapter {
             .getItem(row: indexPath.row)
     }
 
-    func countThings() -> Int {
-        return orders.reduce(0) { $0 + $1.quantity }
-    }
-
     func cellForRowAt(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let item = getItem(indexPath: indexPath)
-        let quantity = orders.filter{ $0.variants.count == 0 && $0.item.detailedName == item.name }.count
+        let existingOrder = $.find(orders) { !$0.hasVariants() && $0.item.detailedName == item.name }
 
-        return groups[indexPath.section].cellForRowAt(tableView: tableView, indexPath: indexPath, quantity: quantity)
+        return groups[indexPath.section].cellForRowAt(
+            tableView: tableView,
+            indexPath: indexPath,
+            quantity: existingOrder == nil ? 0 : (existingOrder?.quantity)!)
     }
 
     func didSelectRowAt(indexPath: IndexPath, callback: ITEM_CALLBACK) {

@@ -1,4 +1,5 @@
 import UIKit
+import Dollar
 
 protocol MenuDelegate {
     func addToBasket(orderItem: OrderItem)
@@ -23,14 +24,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         menuTable.delegate = self
         menuTable.dataSource = self
 
-        adapter.add(group: OrderGroup(name: "Recent Orders", items: []))
-
         firebaseDataSource.getMenuItems { items in
-            // TODO cleanup
-            let drinks = MenuGroup(name: "Drinks", items: items.filter { $0.type == .Drink })
-            self.adapter.add(group: drinks)
-            let toasts = MenuGroup(name: "Toasts", items: items.filter { $0.type == .Toast })
-            self.adapter.add(group: toasts)
+            $.groupBy(items) { $0.type }
+                .forEach { key, value in
+                    self.adapter.add(name: key, items: value)
+            }
 
             self.menuTable.reloadData()
         }
@@ -75,19 +73,27 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationController = segue.destination as! UINavigationController
-        let customizeItemController: CustomizeItemViewController = destinationController.topViewController as! CustomizeItemViewController
+        switch segue.identifier! {
+        case "showCustomizeItemScreen":
+            let destinationController = segue.destination as! UINavigationController
+            let customizeItemController: CustomizeItemViewController = destinationController.topViewController as! CustomizeItemViewController
 
-        // TODO
-        let selectedIndexPath = menuTable.indexPathForSelectedRow!
-        let group = adapter.groups[selectedIndexPath.section] as! MenuGroup
-        let selectedMenuItem = group.items[selectedIndexPath.row]
-        customizeItemController.menuItem = selectedMenuItem
-        let itemsManager =  ItemVariantsManager(variants: selectedMenuItem.variants)
-        itemsManager.chosenVariants = defaultDrinkOptions()
+            // TODO
+            let selectedIndexPath = menuTable.indexPathForSelectedRow!
+            let group = adapter.groups[selectedIndexPath.section] as! MenuGroup
+            let selectedMenuItem = group.items[selectedIndexPath.row]
+            customizeItemController.menuItem = selectedMenuItem
+            let itemsManager =  ItemVariantsManager(variants: selectedMenuItem.variants)
+            itemsManager.chosenVariants = defaultDrinkOptions()
 
-        customizeItemController.itemsManager = itemsManager
-        customizeItemController.menuDelegate = self
+            customizeItemController.itemsManager = itemsManager
+            customizeItemController.menuDelegate = self
+        case "showBasketScreen":
+            let basketController = segue.destination as! BasketViewController
+            basketController.orders = adapter.orders
+        default:
+            break
+        }
     }
 
     func addToBasket(orderItem: OrderItem) {
@@ -96,10 +102,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        // TODO fix performance
-        basketLabel.text = "\(adapter.countThings())"
+        let TOTAL_ITEMS_ORDERED = adapter.orders.reduce(0) { $0 + $1.quantity }
+        basketLabel.text = "\(TOTAL_ITEMS_ORDERED)"
     }
 
+    // TODO
     private func defaultDrinkOptions() -> [ItemVariant] {
         return [
             ItemVariant(name: "Normal", detailedName: "Normal", type: ItemVariantType.Milk),

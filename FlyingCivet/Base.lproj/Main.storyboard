@@ -271,6 +271,9 @@
                                 <state key="normal" title="VIEW BASKET">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="zKK-MC-1bp" kind="show" identifier="showBasketScreen" id="tGD-Nc-iyU"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What would you like from Toast Box?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhi-PH-W5U">
                                 <rect key="frame" x="46" y="84" width="283" height="57.5"/>
@@ -320,6 +323,53 @@
             </objects>
             <point key="canvasLocation" x="4005.5999999999999" y="134.48275862068968"/>
         </scene>
+        <!--My Basket-->
+        <scene sceneID="bQm-bI-k9E">
+            <objects>
+                <viewController title="My Basket" id="zKK-MC-1bp" customClass="BasketViewController" customModule="FlyingCivet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bAU-r8-LjZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="8um-Ib-4F6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9jW-v0-aLD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ata-LH-BKC">
+                                <rect key="frame" x="26" y="597" width="323" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ptT-NH-bcw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="CONFIRM ORDER">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cac-rs-oGa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="513"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cac-rs-oGa" firstAttribute="leading" secondItem="9jW-v0-aLD" secondAttribute="leading" id="2YW-QA-RcM"/>
+                            <constraint firstAttribute="trailing" secondItem="Cac-rs-oGa" secondAttribute="trailing" id="B7D-70-lDM"/>
+                            <constraint firstItem="Ata-LH-BKC" firstAttribute="top" secondItem="Cac-rs-oGa" secondAttribute="bottom" constant="20" id="LOU-pZ-5bX"/>
+                            <constraint firstItem="Cac-rs-oGa" firstAttribute="top" secondItem="bAU-r8-LjZ" secondAttribute="bottom" id="W9b-py-yaX"/>
+                            <constraint firstItem="8um-Ib-4F6" firstAttribute="top" secondItem="Ata-LH-BKC" secondAttribute="bottom" constant="20" id="iYq-Ev-WH8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ata-LH-BKC" secondAttribute="trailing" constant="10" id="xEZ-1C-Dyq"/>
+                            <constraint firstItem="Ata-LH-BKC" firstAttribute="leading" secondItem="9jW-v0-aLD" secondAttribute="leadingMargin" constant="10" id="ySi-tX-qsS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="basketTable" destination="Cac-rs-oGa" id="ti0-ZZ-mdi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ygG-tR-4pW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4005.5999999999999" y="861.3193403298352"/>
+        </scene>
         <!--Customize Item-->
         <scene sceneID="Gms-oH-g2N">
             <objects>
@@ -333,24 +383,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How would you like your Kopi?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sm0-dy-6pH">
-                                <rect key="frame" x="46" y="94" width="283" height="58"/>
+                                <rect key="frame" x="46" y="94" width="283" height="57.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9vV-t2-4A6">
-                                <rect key="frame" x="0.0" y="172" width="375" height="356"/>
+                                <rect key="frame" x="0.0" y="171.5" width="375" height="356.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemGroupCell" textLabel="wQG-B0-hfg" style="IBUITableViewCellStyleDefault" id="r6r-5j-zX6">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r6r-5j-zX6" id="VCo-G8-dbE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wQG-B0-hfg">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>

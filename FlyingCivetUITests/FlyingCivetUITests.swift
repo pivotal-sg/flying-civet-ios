@@ -82,14 +82,46 @@ class FlyingCivetUITests: XCTestCase {
         let ADD_TO_BASKET_TEXT = "ADD TO BASKET"
         app.buttons[ADD_TO_BASKET_TEXT].tap()
 
+        // Check recent orders
+        let KOPI_TEXT = "Kopi"
+        let kopiText = app.staticTexts[KOPI_TEXT]
+        XCTAssert(kopiText.exists, "\"\(KOPI_TEXT)\" label does not exist")
+
+        let KOPI_QUANTITY_TEXT = "2x"
+        let kopiQuantityText = app.staticTexts[KOPI_QUANTITY_TEXT]
+        XCTAssert(kopiQuantityText.exists, "\"\(KOPI_QUANTITY_TEXT)\" label does not exist")
+
+        let KOPI_VARIANTS_TEXT = "Hot O"
+        let kopiVariantsText = app.staticTexts[KOPI_VARIANTS_TEXT]
+        XCTAssert(kopiVariantsText.exists, "\"\(KOPI_VARIANTS_TEXT)\" label does not exist")
+
+        app.tables.staticTexts["Kaya Toast"].tap()
+        app.tables.staticTexts["Kaya Toast"].tap()
         app.tables.staticTexts["Kaya Toast"].tap()
 
-        let UPDATED_BASKET_COUNT_TEXT = "3"
+        let UPDATED_BASKET_COUNT_TEXT = "5"
         let updatedBasketCountText = app.staticTexts[UPDATED_BASKET_COUNT_TEXT]
         XCTAssert(updatedBasketCountText.exists, "\"\(UPDATED_BASKET_COUNT_TEXT)\" label does not exist")
 
         // View basket
         let VIEW_BASKET_TEXT = "VIEW BASKET"
         app.buttons[VIEW_BASKET_TEXT].tap()
+
+        XCTAssert(kopiText.exists, "\"\(KOPI_TEXT)\" label does not exist")
+        XCTAssert(kopiQuantityText.exists, "\"\(KOPI_QUANTITY_TEXT)\" label does not exist")
+        XCTAssert(kopiVariantsText.exists, "\"\(KOPI_VARIANTS_TEXT)\" label does not exist")
+
+        let TOAST_TEXT = "Kaya Toast"
+        let toastText = app.staticTexts[TOAST_TEXT]
+        XCTAssert(toastText.exists, "\"\(TOAST_TEXT)\" label does not exist")
+
+        let TOAST_QUANTITY_TEXT = "3x"
+        let toastQuantityText = app.staticTexts[TOAST_QUANTITY_TEXT]
+        XCTAssert(toastQuantityText.exists, "\"\(TOAST_QUANTITY_TEXT)\" label does not exist")
+
+        let TOAST_VARIANTS_TEXT = "Traditional"
+        let toastVariantsText = app.staticTexts[TOAST_VARIANTS_TEXT]
+        XCTAssert(toastVariantsText.exists, "\"\(TOAST_VARIANTS_TEXT)\" label does not exist")
+
     }
 }
