@@ -23,6 +23,7 @@
 		AE02776D1E389AB9005EFFE7 /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE02776B1E389AB9005EFFE7 /* OrderCell.xib */; };
 		AE0277701E389D00005EFFE7 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02776E1E389D00005EFFE7 /* MenuCell.swift */; };
 		AE0277711E389D00005EFFE7 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE02776F1E389D00005EFFE7 /* MenuCell.xib */; };
+		AE3471201E39DFEE00FD1728 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34711F1E39DFEE00FD1728 /* TestUtils.swift */; };
 		AE9326401E389E610020A609 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02776A1E389AB9005EFFE7 /* OrderCell.swift */; };
 		AE9326411E389E680020A609 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02776E1E389D00005EFFE7 /* MenuCell.swift */; };
 		AE9326431E38A05A0020A609 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9326421E38A05A0020A609 /* BasketViewController.swift */; };
@@ -31,6 +32,7 @@
 		AE9326481E398E650020A609 /* Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9326461E398E650020A609 /* Dollar.framework */; };
 		AE9326491E398E8D0020A609 /* Dollar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9326461E398E650020A609 /* Dollar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE93264B1E3994070020A609 /* MenuControllerAdapterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93264A1E3994070020A609 /* MenuControllerAdapterTest.swift */; };
+		AE93264D1E39DF4D0020A609 /* PresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93264C1E39DF4D0020A609 /* PresenterTest.swift */; };
 		AE9ABB3F1E24C1D0007CFF5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9ABB3E1E24C1D0007CFF5C /* AppDelegate.swift */; };
 		AE9ABB411E24C1D0007CFF5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9ABB401E24C1D0007CFF5C /* ViewController.swift */; };
 		AE9ABB441E24C1D0007CFF5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9ABB421E24C1D0007CFF5C /* Main.storyboard */; };
@@ -127,9 +129,11 @@
 		AE02776B1E389AB9005EFFE7 /* OrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
 		AE02776E1E389D00005EFFE7 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		AE02776F1E389D00005EFFE7 /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		AE34711F1E39DFEE00FD1728 /* TestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		AE9326421E38A05A0020A609 /* BasketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		AE9326461E398E650020A609 /* Dollar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dollar.framework; path = Carthage/Build/iOS/Dollar.framework; sourceTree = "<group>"; };
 		AE93264A1E3994070020A609 /* MenuControllerAdapterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuControllerAdapterTest.swift; sourceTree = "<group>"; };
+		AE93264C1E39DF4D0020A609 /* PresenterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenterTest.swift; sourceTree = "<group>"; };
 		AE9ABB3B1E24C1D0007CFF5C /* FlyingCivet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyingCivet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9ABB3E1E24C1D0007CFF5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE9ABB401E24C1D0007CFF5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -303,6 +307,8 @@
 				AEC7E3E91E31E15B0034F64F /* managers */,
 				AEC7E3EA1E31E1710034F64F /* models */,
 				AE93264A1E3994070020A609 /* MenuControllerAdapterTest.swift */,
+				AE93264C1E39DF4D0020A609 /* PresenterTest.swift */,
+				AE34711F1E39DFEE00FD1728 /* TestUtils.swift */,
 			);
 			path = FlyingCivetTests;
 			sourceTree = "<group>";
@@ -537,7 +543,9 @@
 				AE9ABB541E24C1D0007CFF5C /* FlyingCivetTests.swift in Sources */,
 				AEBC27411E2DEEBE00B9836E /* RunViewController.swift in Sources */,
 				AEC7E3E81E31C91B0034F64F /* MenuItemsManager.swift in Sources */,
+				AE93264D1E39DF4D0020A609 /* PresenterTest.swift in Sources */,
 				AEC7E3DD1E31AB370034F64F /* OrderItemTest.swift in Sources */,
+				AE3471201E39DFEE00FD1728 /* TestUtils.swift in Sources */,
 				AEBC273E1E2DAE6E00B9836E /* LocationViewController.swift in Sources */,
 				AEC7E3DB1E31AB2C0034F64F /* ItemVariantTest.swift in Sources */,
 				AE9326401E389E610020A609 /* OrderCell.swift in Sources */,
